@@ -1,0 +1,29 @@
+/* RESET FILE */
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 62.5%;
+  /* Setting the base font size to 62.5%
+    this is 62.5% of the browsers default font size - 16px
+    thus making our base font size 10px and making it easy to use rem for all children measurements
+    This is a good practice to do incase users change the default font size. Very flexible */
+}
+
+body {
+  box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;
+  /* background-color: #f3d52f; */
+  overflow-x: hidden;
+}
+
+/* code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+} */

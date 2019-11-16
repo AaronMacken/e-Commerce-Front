@@ -1,0 +1,22 @@
+.footer-section {
+    min-height: 20rem;
+    background-color: #f3d52f;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    /* position: absolute;
+    width: 100vw;
+    bottom: 0; */
+}
+
+.info {
+    font-size: 1.5rem;
+    letter-spacing: 1px;
+}
+
+.footer-col-left {
+    width: 36rem;
+}
+.footer-col-right{
+    width: 36rem;
+}

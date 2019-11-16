@@ -1,0 +1,155 @@
+/* main color: #f3d52f; */
+/* other colors: #76d3d6  #bd3e3e #292933 #f15035 orange*/
+
+/* --------------------------- HEADER SECTION --------------------------- */
+
+.header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background-color: #f3d52f;
+  width: 100vw;
+  margin: 0 auto;
+  padding-top: 5rem;
+  background-image: linear-gradient(to bottom, #f3d62f4b, #f3d62f10 50%),
+    url("/peace.png");
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.landing-col-left {
+  height: 62.2rem;
+  width: 58vw;
+  display: flex;
+  justify-content: center;
+}
+
+.landing-col-left h1 {
+  max-width: 35.5rem;
+  font-family: "Jomolhari", serif;
+}
+
+.header-title {
+  font-size: 10rem;
+  font-weight: 400;
+}
+
+.landing-col-right {
+  height: 60.2rem;
+  width: 42vw;
+  margin-right: 5vw;
+  text-align: center;
+}
+
+.landing-col-right h3 {
+  font-size: 4rem;
+  font-weight: 200;
+}
+
+.button-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  height: 30rem;
+  margin-top: 15%;
+}
+
+
+.landing-content {
+  height: 15rem;
+  background-color: orange;
+  clip-path: polygon(0 0, 100% 0%, 100% 49%, 0% 100%);
+}
+
+
+/* --------------------------- ARROW BUTTON (NOT USED) --------------------------- */
+
+.arrow-btn {
+  height: 5rem;
+  width: 5rem;
+  background-color: orange;
+  border: 3px solid #292933;
+  border-radius: 50%;
+  margin: 2rem 50vw;
+  font-size: 275%;
+  padding-top: 5px;
+  padding-right: 1px;
+  transform: translateY(2px);
+  transition: all 0.2s;
+}
+
+.arrow-btn:focus {
+  outline: none;
+}
+
+.arrow-btn:hover {
+  transform: translateY(-2px);
+}
+.arrow-btn:active {
+  transform: translateY(-1px);
+}
+
+
+
+
+
+
+/* --------------------------- PRODUCT LIST --------------------------- */
+
+.product-list-section {
+  margin: 5rem auto;
+  height: 50rem;
+  background-color: #fff;
+  max-width: 1140px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.product-list {
+  list-style: none;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.product-list-item {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.product-list-item-img {
+  width: 100%;
+  height: auto;
+  border-radius: 3px;
+}
+
+.product-list-item-title {
+  margin: 1rem;
+  max-width: 30rem;
+  height: 5rem;
+}
+.product-list-item-price {
+  max-width: 30rem;
+  text-align: center;
+  font-size: 3rem;
+  font-weight: bold;
+}
+
+
+.product-list-item-add {
+  padding: 1rem;
+  background-color: #007bff;
+  color: white;
+  outline: none;
+  border: none;
+  border-radius: 2px;
+  font-size: 1.5rem;
+  margin-top: 1rem;
+  width: 15rem;
+  font-weight: 500;
+}
