@@ -22,8 +22,9 @@ export default class Landing extends Component {
           </div>
         </header>
         <ClipTransition path="0 0, 100% 0%, 100% 49%, 0% 100%" />
-
+        
         <section className="product-list-section">
+          <p className="product-list-section-title">Popular Products</p>
           <ul className="product-list">
 
             <li className="product-list-item">
@@ -61,8 +62,8 @@ export default class Landing extends Component {
               <span className="product-list-item-price">$44.99</span>
               <button className="product-list-item-add">Add to cart</button>
             </li>
-    
           </ul>
+          <button className="product-list-item-add shop-all-btn">Shop All</button>
         </section>
         <ClipTransition path="0 49%, 100% 0, 100% 100%, 0% 100%" />
       </div>

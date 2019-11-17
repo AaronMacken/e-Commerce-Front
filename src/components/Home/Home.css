@@ -99,13 +99,21 @@
 /* --------------------------- PRODUCT LIST --------------------------- */
 
 .product-list-section {
-  margin: 5rem auto;
-  height: 50rem;
+  margin: 2rem auto;
+  min-height: 50rem;
   background-color: #fff;
   max-width: 1140px;
   display: flex;
   flex-direction: column;
   justify-content: center;
+}
+
+.product-list-section-title {
+  font-size: 300%;
+  margin: auto;
+  margin-bottom: 4rem;
+  text-align: center;
+  font-weight: 500;
 }
 
 .product-list {
@@ -152,4 +160,8 @@
   margin-top: 1rem;
   width: 15rem;
   font-weight: 500;
+}
+
+.shop-all-btn {
+  margin: 5rem auto 0 auto;
 }

@@ -2,8 +2,6 @@ import React, { Component } from "react";
 import { Map, GoogleApiWrapper, Marker } from "google-maps-react";
 import "./MapContainer.css";
 
-const webpack = require('webpack');
-const dotenv = require('dotenv');
 
 const mapStyles = {
   height: "100%",
