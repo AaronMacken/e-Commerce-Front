@@ -7,7 +7,7 @@ export default class Contact extends Component {
   render() {
     return (
       <div className="contact-wrapper">
-        <ClipTransition path="0 0, 100% 0%, 100% 49%, 0% 100%" />
+        <ClipTransition path="0 0, 100% 0%, 100% 49%, 0% 100%" color={'#23c9ce'} />
 
         <div className="contact-row">
           <div className="contact-col left">
@@ -32,7 +32,7 @@ export default class Contact extends Component {
             <MapContainer />
           </div>
         </div>
-        <ClipTransition path="0 49%, 100% 0, 100% 100%, 0% 100%" />
+        <ClipTransition path="0 49%, 100% 0, 100% 100%, 0% 100%" color={'#4bde75'}/>
       </div>
     );
   }
