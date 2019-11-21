@@ -1,7 +1,28 @@
 import React, { Component } from "react";
 import "./ProductListItem.css";
+import { addItem } from "../../store/actions/item";
+import { connect } from "react-redux";
 
-export default class ProductListItem extends Component {
+class ProductListItem extends Component {
+  constructor(props) {
+    super(props)
+  
+    this.state = {
+       
+    }
+    this.addToCart = this.addToCart.bind(this);
+  }
+
+  addToCart() {
+    const payload = { 
+      data: {
+        title: this.props.title,
+        price: this.props.price
+      }
+    }
+    this.props.addItem(payload);
+  }
+  
   render() {
     const { img, title, price } = this.props;
     return (
@@ -14,8 +35,12 @@ export default class ProductListItem extends Component {
         ></img>
         <h2 className="product-list-item-title">{`${title}`}</h2>
         <span className="product-list-item-price">{`${price}`}</span>
-        <button className="product-list-item-add">Add to cart</button>
+        <button className="product-list-item-add" onClick={this.addToCart}>
+          Add to cart
+        </button>
       </li>
     );
   }
 }
+
+export default connect(null, { addItem })(ProductListItem);
