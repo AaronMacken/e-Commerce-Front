@@ -10,17 +10,20 @@ export default class Landing extends Component {
       {
         img: "prod1.jpg",
         title: "Sun State Pain Cream 250mg",
-        price: "$34.99"
+        price: "$34.99",
+        id: 1
       },
       {
         img: "prod2.jpg",
         title: "Hemp Bomb Pain Freeze Gel 50mg",
-        price: "$14.99"
+        price: "$14.99",
+        id: 2
       },
       {
         img: "prod3.jpg",
         title: "Koi Hand & Body Lotion - Lavender - 4.25oz, 200mg",
-        price: "$44.99"
+        price: "$44.99", 
+        id: 3
       }
     ]
   };
@@ -51,9 +54,10 @@ export default class Landing extends Component {
         <section className="product-list-section">
           <p className="product-list-section-title">Popular Products</p>
           <ul className="product-list">
-            <ProductListItem img={product[0].img} title={product[0].title} price={product[0].price}/>
-            <ProductListItem img={product[1].img} title={product[1].title} price={product[1].price}/>
-            <ProductListItem img={product[2].img} title={product[2].title} price={product[2].price}/>
+            {/* refactor later */}
+            <ProductListItem img={product[0].img} title={product[0].title} price={product[0].price} id={product[0].id}/>
+            <ProductListItem img={product[1].img} title={product[1].title} price={product[1].price} id={product[1].id}/>
+            <ProductListItem img={product[2].img} title={product[2].title} price={product[2].price} id={product[2].id}/>
           </ul>
           <button className="product-list-item-add" id="shop-all-btn">
             Shop All &nbsp; <i class="fas fa-arrow-right"></i>

@@ -86,6 +86,18 @@ function Navbar() {
               Contact Us
             </NavLink>
           </ResponsiveLi>
+
+          <ResponsiveLi>
+            <NavLink
+              exact
+              to="/Cart"
+              activeStyle={activeStyle}
+              // style={defaultStyle}
+              className="hover"
+            >
+              Cart
+            </NavLink>
+          </ResponsiveLi>
         </ul>
       </div>
     </nav>

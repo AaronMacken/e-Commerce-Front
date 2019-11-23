@@ -14,10 +14,12 @@ class ProductListItem extends Component {
   }
 
   addToCart() {
+    // payload for redux when adding items to state
     const payload = { 
       data: {
         title: this.props.title,
-        price: this.props.price
+        price: this.props.price,
+        id: this.props.id
       }
     }
     this.props.addItem(payload);
