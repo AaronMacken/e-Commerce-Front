@@ -19,7 +19,8 @@ class ProductListItem extends Component {
       data: {
         title: this.props.title,
         price: this.props.price,
-        id: this.props.id
+        id: this.props.id,
+        img: this.props.img
       }
     }
     this.props.addItem(payload);
@@ -36,7 +37,7 @@ class ProductListItem extends Component {
           className="product-list-item-img"
         ></img>
         <h2 className="product-list-item-title">{`${title}`}</h2>
-        <span className="product-list-item-price">{`${price}`}</span>
+        <span className="product-list-item-price">{`$${price}`}</span>
         <button className="product-list-item-add" onClick={this.addToCart}>
           Add to cart
         </button>

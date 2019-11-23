@@ -10,19 +10,19 @@ export default class Landing extends Component {
       {
         img: "prod1.jpg",
         title: "Sun State Pain Cream 250mg",
-        price: "$34.99",
+        price: 34.99,
         id: 1
       },
       {
         img: "prod2.jpg",
         title: "Hemp Bomb Pain Freeze Gel 50mg",
-        price: "$14.99",
+        price: 14.99,
         id: 2
       },
       {
         img: "prod3.jpg",
         title: "Koi Hand & Body Lotion - Lavender - 4.25oz, 200mg",
-        price: "$44.99", 
+        price: 44.99, 
         id: 3
       }
     ]
