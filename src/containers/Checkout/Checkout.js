@@ -7,14 +7,6 @@ import { connect } from "react-redux";
 class Checkout extends React.Component {
   constructor(props) {
     super(props);
-
-    // example redux state
-    this.state = {
-      productData: {
-        exampleReduxAmount: 20.99,
-        exampleReduxNames: [`CBD Oil`, `CBD Edibles`]
-      }
-    };
     this.onToken = this.onToken.bind(this);
   }
 
@@ -23,9 +15,15 @@ class Checkout extends React.Component {
     // send with the axios post the token (which includes all address data)
     // and product data coming from redux state
     // await the post request to assign the value of that to a variable
+
+    const cartPayload = {
+      orderString: this.getOrderString(this.props.checkoutItems),
+      totalPrice: this.getOrderPrice(this.props.checkoutItems)
+    }
+
     const response = await axios.post("/charge", {
       token,
-      productData: this.state.productData
+      checkoutItems: cartPayload
     });
     // get status from that request (being returned from server side code)
     const { status } = response.data;
@@ -36,10 +34,6 @@ class Checkout extends React.Component {
     }
   }
 
-  // takes redux state and creates a single string with all array values of selected products
-  createDescriptionString(arrToCombine) {
-    return arrToCombine.join(", ");
-  }
   // =================================================================================================
   // create final order string fn
   // the code utilizes Set object to store a collection of unique values
@@ -68,14 +62,11 @@ class Checkout extends React.Component {
           billingAddress
           shippingAddress
           // multiply dollar amounts by 100 to convert to cents
-          amount={this.state.productData.exampleReduxAmount * 100}
-          name={this.createDescriptionString(
-            this.state.productData.exampleReduxNames
-          )}
+          amount={this.getOrderPrice(this.props.checkoutItems) * 100}
+          name={this.getOrderString(this.props.checkoutItems)}
         />
         <h2>Order: {this.getOrderString(this.props.checkoutItems)}</h2>
         <h2>Price: {this.getOrderPrice(this.props.checkoutItems)}</h2>
-        {/* <button onClick={() => this.getOrderPrice(this.props.checkoutItems)}>Test</button> */}
       </div>
     );
   }
