@@ -42,22 +42,20 @@ class Checkout extends React.Component {
   }
   // =================================================================================================
   // create final order string fn
-  // the code utilizes Set object to store a collection of unique values 
+  // the code utilizes Set object to store a collection of unique values
   // by mapping the existing array into a new array by item titles from redux state
   getOrderString(reduxState) {
     let orderString = [...new Set(reduxState.map(item => item.data.title))];
-    return orderString;
+    return orderString.join(', ');
   }
 
   // get order price fn
   // add all item prices to a total variable and return that var
   getOrderPrice(reduxState) {
-    // let orderPrice = reduxState.reduce((a,b) => a.data.price + b.data.price, 0);
     let total = 0;
     reduxState.forEach(item => {
       total += item.data.price;
-    })
-    // console.log(reduxState[0].data.price)
+    });
     return total;
   }
 
@@ -75,7 +73,9 @@ class Checkout extends React.Component {
             this.state.productData.exampleReduxNames
           )}
         />
-        <button onClick={() => this.getOrderPrice(this.props.checkoutItems)}>Test</button>
+        <h2>Order: {this.getOrderString(this.props.checkoutItems)}</h2>
+        <h2>Price: {this.getOrderPrice(this.props.checkoutItems)}</h2>
+        {/* <button onClick={() => this.getOrderPrice(this.props.checkoutItems)}>Test</button> */}
       </div>
     );
   }

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "./ProductListItem.css";
-import { addItem } from "../../store/actions/item";
+import { addItem } from "../../store/actions/itemActions";
 import { connect } from "react-redux";
 
 class ProductListItem extends Component {

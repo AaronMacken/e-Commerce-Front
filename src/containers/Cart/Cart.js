@@ -1,17 +1,22 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import CartItem from "../../components/CartItem/CartItem";
-import Checkout from '../Checkout/Checkout';
+import CartItem from "../CartItem/CartItem";
+import Checkout from "../Checkout/Checkout";
 
 class Cart extends Component {
-    
+  componentDidMount() {}
   render() {
-    const cartItems = this.props.checkoutItems.map((item, index) => (
-        <CartItem  title={item.data.title} price={item.data.price} img={item.data.img}/>
+    let cartItems = this.props.checkoutItems.map((item, index) => (
+      <CartItem
+        title={item.data.title}
+        price={item.data.price}
+        img={item.data.img}
+        index={index}
+      />
     ));
     return (
       <div>
-        <h1 style={{textAlign: 'center'}}>Cart Page</h1>
+        <h1 style={{ textAlign: "center" }}>Cart Page</h1>
         {cartItems}
         <Checkout />
       </div>
