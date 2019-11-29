@@ -31,8 +31,31 @@ class Checkout extends React.Component {
   // the code utilizes Set object to store a collection of unique values
   // by mapping the existing array into a new array by item titles from redux state
   getOrderString(reduxState) {
-    let orderString = [...new Set(reduxState.map(item => item.data.title))];
-    return orderString.join(", ");
+    // create an array with each of the redux element strings
+    let itemArray = reduxState.map(item => item.data.title);
+
+    // create associative array object
+    let newArr = {};
+
+    // assign key value pairs to that object
+    itemArray.forEach((i) => { newArr[i] = (newArr[i] || 0) + 1; });
+    // for each item in the object, push to a str
+
+    let orderArr = [];
+    for (let item in newArr) {
+      // console.log(`${item} x${newArr[item]}`)
+      // return <li>{`${item} x${newArr[item]}`}</li>
+      orderArr.push(`${item} x${newArr[item]}`);
+    }
+
+    console.log(orderArr);
+    return orderArr;
+    // orderArr.map((item, index) => {
+    //   console.log('mapping... ' + item)
+    //   return <li key={index}>{item}</li>
+    // })
+    // let orderString = [...new Set(reduxState.map(item => item.data.title))];
+    // return orderString.join(", ");
   }
 
   // get order price fn
@@ -48,11 +71,20 @@ class Checkout extends React.Component {
   render() {
     return (
       <div className="checkout-wrapper">
-        {/* <h2>Your Order: {this.getOrderString(this.props.checkoutItems)}</h2> */}
         <h2 className="sub-total">
           SubTotal: ${this.getOrderPrice(this.props.checkoutItems).toFixed(2)}
         </h2>
-        <StripeCheckout
+        <ul>
+          {/* {this.getOrderString(this.props.checkoutItems)} */}
+          {this.getOrderString(this.props.checkoutItems).map((item, index) => {
+            return <li key={index}>{item}</li>
+          })}
+        </ul>
+
+        {/* <h2 className="sub-total">
+          Order: {this.getOrderString(this.props.checkoutItems)}
+        </h2> */}
+        {/* <StripeCheckout
           stripeKey="" // stripe pk here
           token={this.onToken}
           billingAddress
@@ -60,7 +92,7 @@ class Checkout extends React.Component {
           // multiply dollar amounts by 100 to convert to cents
           amount={this.getOrderPrice(this.props.checkoutItems) * 100}
           name={this.getOrderString(this.props.checkoutItems)}
-        />
+        /> */}
       </div>
     );
   }
