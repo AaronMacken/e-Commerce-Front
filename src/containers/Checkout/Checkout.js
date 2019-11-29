@@ -1,8 +1,8 @@
 import React from "react";
 import StripeCheckout from "react-stripe-checkout";
 import axios from "axios";
-import { toast } from "react-toastify";
 import { connect } from "react-redux";
+import "./Checkout.css";
 
 class Checkout extends React.Component {
   constructor(props) {
@@ -19,19 +19,11 @@ class Checkout extends React.Component {
     const cartPayload = {
       orderString: this.getOrderString(this.props.checkoutItems),
       totalPrice: this.getOrderPrice(this.props.checkoutItems)
-    }
-
+    };
     const response = await axios.post("/charge", {
       token,
       checkoutItems: cartPayload
     });
-    // get status from that request (being returned from server side code)
-    const { status } = response.data;
-    if (status === "success") {
-      toast("Success! Check email for details.", { type: "success" });
-    } else {
-      toast("Something went wrong", { type: "error" });
-    }
   }
 
   // =================================================================================================
@@ -40,7 +32,7 @@ class Checkout extends React.Component {
   // by mapping the existing array into a new array by item titles from redux state
   getOrderString(reduxState) {
     let orderString = [...new Set(reduxState.map(item => item.data.title))];
-    return orderString.join(', ');
+    return orderString.join(", ");
   }
 
   // get order price fn
@@ -55,7 +47,11 @@ class Checkout extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="checkout-wrapper">
+        {/* <h2>Your Order: {this.getOrderString(this.props.checkoutItems)}</h2> */}
+        <h2 className="sub-total">
+          SubTotal: ${this.getOrderPrice(this.props.checkoutItems).toFixed(2)}
+        </h2>
         <StripeCheckout
           stripeKey="" // stripe pk here
           token={this.onToken}
@@ -65,8 +61,6 @@ class Checkout extends React.Component {
           amount={this.getOrderPrice(this.props.checkoutItems) * 100}
           name={this.getOrderString(this.props.checkoutItems)}
         />
-        <h2>Order: {this.getOrderString(this.props.checkoutItems)}</h2>
-        <h2>Price: {this.getOrderPrice(this.props.checkoutItems)}</h2>
       </div>
     );
   }

@@ -1,22 +1,21 @@
 .footer-section {
-    min-height: 20rem;
-    background-color: #f3d52f;
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-    /* position: absolute;
-    width: 100vw;
-    bottom: 0; */
+  min-height: 20rem;
+  background-color: rgb(45, 53, 69);
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  color: rgba(255, 255, 255, 0.55)
 }
 
 .info {
-    font-size: 1.5rem;
-    letter-spacing: 1px;
+  font-size: 1.5rem;
+  letter-spacing: 1px;
+  font-weight: 400;
 }
 
 .footer-col-left {
-    width: 36rem;
+  width: 36rem;
 }
-.footer-col-right{
-    width: 36rem;
+.footer-col-right {
+  width: 36rem;
 }

@@ -2,6 +2,9 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import CartItem from "../CartItem/CartItem";
 import Checkout from "../Checkout/Checkout";
+import Title from "../../components/Title/Title";
+import LandingButton from "../../components/LandingButton/LandingButton";
+import "./Cart.css";
 
 class Cart extends Component {
   componentDidMount() {}
@@ -14,13 +17,35 @@ class Cart extends Component {
         index={index}
       />
     ));
-    return (
-      <div>
-        <h1 style={{ textAlign: "center" }}>Cart Page</h1>
-        {cartItems}
-        <Checkout />
-      </div>
-    );
+    if (this.props.checkoutItems.length < 1) {
+      return (
+        <div className="cart-page">
+          <Title text={"Shopping Cart"} />
+          <div className="cart-col-wrapper">
+            <div className="cart-col">
+              <h2>Cart is empty</h2>
+            </div>
+            <div className="cart-col">
+              <a>
+                <LandingButton text={"See our products"}></LandingButton>
+              </a>
+            </div>
+          </div>
+        </div>
+      );
+    } else {
+      return (
+        <div className="cart-page">
+          <Title text={"Shopping Cart"} />
+          <div className="cart-col-wrapper">
+            <div className="cart-col">
+              <Checkout />
+            </div>
+            <div className="cart-col-right">{cartItems}</div>
+          </div>
+        </div>
+      );
+    }
   }
 }
 

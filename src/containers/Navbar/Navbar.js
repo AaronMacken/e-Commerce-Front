@@ -29,7 +29,7 @@ function Navbar() {
         data-toggle="collapse"
         data-target="#navbarNav"
       >
-        <span className="brand-text">
+        <span className="navbar-brand-text">
           Hippie<span className="brand-text-highlight">House</span>
         </span>
       </p>

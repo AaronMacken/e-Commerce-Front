@@ -1,0 +1,29 @@
+.cart-page {
+  padding: 3rem;
+  min-height: 81vh;
+  position: relative;
+}
+
+.cart-col-wrapper {
+  margin-top: 5rem;
+  display: flex;
+  min-height: 60vh;
+}
+
+.cart-col{
+  width: 50vw;
+  border-right: 2px solid green;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.cart-col:last-child {
+    border-right: none;
+}
+
+.cart-col-right {
+    max-height: 60vh;
+    overflow: scroll;
+}

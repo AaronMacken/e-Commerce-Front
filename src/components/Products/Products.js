@@ -1,10 +1,11 @@
 import React, { Component } from "react";
+import Title from '../Title/Title';
 
 export default class Products extends Component {
   render() {
     return (
       <div>
-        <h1>Products Page</h1>
+        <Title text={'Products'}/>
       </div>
     );
   }

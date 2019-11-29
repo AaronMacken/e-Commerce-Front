@@ -3,6 +3,7 @@ import "./Home.css";
 import ClipTransition from "../ClipTransition/ClipTransition";
 import LandingButton from "../LandingButton/LandingButton";
 import ProductListItem from "../ProductListItem/ProductListItem";
+import Title from '../Title/Title';
 
 export default class Landing extends Component {
   static defaultProps = {
@@ -35,26 +36,17 @@ export default class Landing extends Component {
     return (
       <div>
         <header className="header">
-          {/* first row */}
-
-          <div className="landing-col-left">
-            <h1 className="header-title">CBD, glass ...and more</h1>
-          </div>
-
-          <div className="landing-col-right">
-            <h3>Based in North Carolina, USA</h3>
-            <div className="button-container">
-              <LandingButton text={"shop"} color={"#76d3d6"} />
-              <LandingButton text={"contact"} color={"#bd3e3e"} />
-            </div>
+          <div className="landing-col">
+            <h1 className="header-title">The Hippie House</h1>
+            <h2 className="header-sub">We are a CBD hemp dispensary located at <br/>10418 North Main St. Suite-P Archdale, NC 27263</h2>
+            <LandingButton text="See our products"></LandingButton>
           </div>
         </header>
-        <ClipTransition path="0 0, 100% 0%, 100% 49%, 0% 100%" color="orange" />
+        <ClipTransition path="0 0, 100% 0%, 100% 49%, 0% 100%" color="#5c9c55" />
 
         <section className="product-list-section">
-          <p className="product-list-section-title">Popular Products</p>
+          <Title text={'Popular Products'} />
           <ul className="product-list">
-            {/* refactor later */}
             <ProductListItem img={product[0].img} title={product[0].title} price={product[0].price} id={product[0].id}/>
             <ProductListItem img={product[1].img} title={product[1].title} price={product[1].price} id={product[1].id}/>
             <ProductListItem img={product[2].img} title={product[2].title} price={product[2].price} id={product[2].id}/>
@@ -63,17 +55,8 @@ export default class Landing extends Component {
             Shop All &nbsp; <i class="fas fa-arrow-right"></i>
           </button>
         </section>
-        <ClipTransition
-          path="0 49%, 100% 0, 100% 100%, 0% 100%"
-          color="orange"
-        />
       </div>
     );
   }
 }
 
-{
-  /* <button className="arrow-btn">
-            <i class="fas fa-chevron-down"></i>
-          </button> */
-}

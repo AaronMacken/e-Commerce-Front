@@ -1,9 +1,11 @@
 /* ---------- Navbar Styling ----------- */
 .navbar {
-  background-color: #f3d52f !important;
+  background-color: #80BE79 !important;
   padding: 1rem;
   font-size: 1.5rem;
   height: 10rem;
+  font-size: 300%;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .navbar-nav {
@@ -39,7 +41,7 @@
     outline: none;
 }   
 
-.brand-text {
+.navbar-brand-text {
   cursor: pointer;
 }
 
@@ -47,22 +49,10 @@
   font-weight: 700;
 }
 
-a.nav-link {
-  /* font-size: 1.75rem; */
-  /* -webkit-transition: all .1s;
-    transition: all 5s; */
-  /* color: #fff!important;
-  font-weight: 400;
-  margin: 0 1rem -2px 1rem;
-  cursor: pointer;
-  border-bottom: 2px solid transparent;
-  transition: all .1s; */
+.nav-item {
+  letter-spacing: 1px;
 }
 
-/* a.nav-link:hover;
-a.nav-link:active {
-  font-weight: 700;
-} */
 
 .hover {
   padding-right: .5rem;

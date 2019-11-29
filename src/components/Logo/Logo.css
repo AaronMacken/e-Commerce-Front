@@ -1,9 +1,10 @@
 .brand-text {
   margin: 0;
-  color: #03293c;
+  color: rgb(128, 190, 121);
   font-size: 100%;
   text-align: center;
   font-size: 5rem;
   text-transform: uppercase;
   font-weight: 300;
 }
+
