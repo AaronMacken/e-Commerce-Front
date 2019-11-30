@@ -51,9 +51,10 @@ export default class Landing extends Component {
             <ProductListItem img={product[1].img} title={product[1].title} price={product[1].price} id={product[1].id}/>
             <ProductListItem img={product[2].img} title={product[2].title} price={product[2].price} id={product[2].id}/>
           </ul>
-          <button className="product-list-item-add" id="shop-all-btn">
-            Shop All &nbsp; <i class="fas fa-arrow-right"></i>
-          </button>
+          <div className="shop-all-btn-wrapper">
+            <LandingButton text="See our products"></LandingButton>
+          </div>
+          
         </section>
       </div>
     );

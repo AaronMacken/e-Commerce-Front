@@ -20,13 +20,14 @@ class Checkout extends React.Component {
       orderString: this.getOrderString(this.props.checkoutItems),
       totalPrice: this.getOrderPrice(this.props.checkoutItems)
     };
+    
     const response = await axios.post("/charge", {
       token,
       checkoutItems: cartPayload
     });
 
     const { status } = response.data;
-    if(status === 'success') {
+    if (status === 'success') {
       console.log('success')
     } else {
       console.log('failure');
@@ -77,29 +78,37 @@ class Checkout extends React.Component {
   render() {
     return (
       <div className="checkout-wrapper">
-        <h2 className="sub-total">
-          {/* Display total, round deciaml */}
-          SubTotal: ${this.getOrderPrice(this.props.checkoutItems).toFixed(2)}
-        </h2>
+        <div className="col-left-top">
+          {/* display data */}
+          <h2 className="sub-total">Order</h2>
+          <ul className="cart-items-list">
+            {/* use getDisplayData function with map to return jsx elements of the returned array */}
+            {this.getDisplayData(this.props.checkoutItems).map((item, index) => {
+              return <li key={index} className="cart-item-li">{item}</li>;
+            })}
+          </ul>
+        </div>
 
-        {/* display data */}
-        <ul>
-          {/* use getDisplayData function with map to return jsx elements of the returned array */}
-          {this.getDisplayData(this.props.checkoutItems).map((item, index) => {
-            return <li key={index}>{item}</li>;
-          })}
-        </ul>
 
-        {/* Stripe component that sends data to back end using methods combined with redux state */}
-        <StripeCheckout
-          stripeKey="" // stripe pk here
-          token={this.onToken}
-          billingAddress
-          shippingAddress
-          // multiply dollar amounts by 100 to convert to cents
-          amount={this.getOrderPrice(this.props.checkoutItems) * 100}
-          name={this.getOrderString(this.props.checkoutItems)}
-        />
+
+        <div className="col-left-bottom">
+          <h2 className="sub-total">
+            {/* Display total, round deciaml */}
+            SubTotal: ${this.getOrderPrice(this.props.checkoutItems).toFixed(2)}
+          </h2>
+
+          {/* Stripe component that sends data to back end using methods combined with redux state */}
+          <StripeCheckout
+            stripeKey="" // stripe pk here
+            token={this.onToken}
+            billingAddress
+            shippingAddress
+            // multiply dollar amounts by 100 to convert to cents
+            amount={this.getOrderPrice(this.props.checkoutItems) * 100}
+            name={this.getOrderString(this.props.checkoutItems)}
+          />
+        </div>
+
       </div>
     );
   }

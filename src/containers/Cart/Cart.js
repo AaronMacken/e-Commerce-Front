@@ -7,7 +7,6 @@ import LandingButton from "../../components/LandingButton/LandingButton";
 import "./Cart.css";
 
 class Cart extends Component {
-  componentDidMount() {}
   render() {
     let cartItems = this.props.checkoutItems.map((item, index) => (
       <CartItem

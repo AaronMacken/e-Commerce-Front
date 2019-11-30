@@ -1,11 +1,14 @@
-.checkout-wrapper {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
+
 .sub-total {
     font-size: 300%;
     font-family: serif;
     margin-bottom: 2rem;
+}
+
+.cart-items-list {
+    list-style-type: none;
+}
+
+.cart-item-li {
+    font-size: 2rem;
 }
