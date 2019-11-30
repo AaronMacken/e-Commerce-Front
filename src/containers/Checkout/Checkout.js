@@ -24,38 +24,44 @@ class Checkout extends React.Component {
       token,
       checkoutItems: cartPayload
     });
+
+    const { status } = response.data;
+    if(status === 'success') {
+      console.log('success')
+    } else {
+      console.log('failure');
+    }
   }
 
   // =================================================================================================
-  // create final order string fn
-  // the code utilizes Set object to store a collection of unique values
-  // by mapping the existing array into a new array by item titles from redux state
-  getOrderString(reduxState) {
+
+  // Get unique array names along with the number of occurences
+  getDisplayData(reduxState) {
     // create an array with each of the redux element strings
     let itemArray = reduxState.map(item => item.data.title);
 
     // create associative array object
     let newArr = {};
 
-    // assign key value pairs to that object
-    itemArray.forEach((i) => { newArr[i] = (newArr[i] || 0) + 1; });
-    // for each item in the object, push to a str
+    // assign key value pairs to that object. 
+    // Key being the array value and the value being the number of occurences
+    itemArray.forEach(i => {
+      newArr[i] = (newArr[i] || 0) + 1;
+    });
 
+    // create new array to store key value pairs from the associative array object
     let orderArr = [];
     for (let item in newArr) {
-      // console.log(`${item} x${newArr[item]}`)
-      // return <li>{`${item} x${newArr[item]}`}</li>
       orderArr.push(`${item} x${newArr[item]}`);
     }
 
-    console.log(orderArr);
+    // return that array to be used for displaying data and sending data to back end
     return orderArr;
-    // orderArr.map((item, index) => {
-    //   console.log('mapping... ' + item)
-    //   return <li key={index}>{item}</li>
-    // })
-    // let orderString = [...new Set(reduxState.map(item => item.data.title))];
-    // return orderString.join(", ");
+  }
+
+  // use array returned from previous function along with the join method to create string to send to back end
+  getOrderString(reduxState) {
+    return this.getDisplayData(reduxState).join(", ");
   }
 
   // get order price fn
@@ -72,19 +78,20 @@ class Checkout extends React.Component {
     return (
       <div className="checkout-wrapper">
         <h2 className="sub-total">
+          {/* Display total, round deciaml */}
           SubTotal: ${this.getOrderPrice(this.props.checkoutItems).toFixed(2)}
         </h2>
+
+        {/* display data */}
         <ul>
-          {/* {this.getOrderString(this.props.checkoutItems)} */}
-          {this.getOrderString(this.props.checkoutItems).map((item, index) => {
-            return <li key={index}>{item}</li>
+          {/* use getDisplayData function with map to return jsx elements of the returned array */}
+          {this.getDisplayData(this.props.checkoutItems).map((item, index) => {
+            return <li key={index}>{item}</li>;
           })}
         </ul>
 
-        {/* <h2 className="sub-total">
-          Order: {this.getOrderString(this.props.checkoutItems)}
-        </h2> */}
-        {/* <StripeCheckout
+        {/* Stripe component that sends data to back end using methods combined with redux state */}
+        <StripeCheckout
           stripeKey="" // stripe pk here
           token={this.onToken}
           billingAddress
@@ -92,7 +99,7 @@ class Checkout extends React.Component {
           // multiply dollar amounts by 100 to convert to cents
           amount={this.getOrderPrice(this.props.checkoutItems) * 100}
           name={this.getOrderString(this.props.checkoutItems)}
-        /> */}
+        />
       </div>
     );
   }
