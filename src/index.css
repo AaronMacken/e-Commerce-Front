@@ -19,11 +19,7 @@ html {
 body {
   box-sizing: border-box;
   font-family: serif;
-  /* background-color: #f3d52f; */
   overflow-x: hidden;
+  position: relative;
+  max-width: 100vw;
 }
-
-/* code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
-} */

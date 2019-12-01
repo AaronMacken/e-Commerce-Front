@@ -2,24 +2,11 @@ import React from "react";
 import "./Navbar.css";
 import ResponsiveLi from "./ResponsiveLi";
 import { NavLink } from "react-router-dom";
-import { NONAME } from "dns";
 
 const activeStyle = { fontWeight: "700" };
 
-// const defaultStyle = {
-//   paddingRight: '.5rem',
-//   paddingReft: '.5rem',
-//   color: 'white',
-//   fontSize: '1.75rem',
-//   fontWeight: '400',
-//   margin: '0 1rem -2px 1rem',
-//   cursor: 'pointer',
-//   transition: 'all .1s',
-//   textDecoration: 'none'
-// }
-
 function Navbar() {
-  return [
+  return (
     <nav
       className="navbar navbar-expand-lg navbar-light bg-light"
       id="myNavbar"
@@ -56,7 +43,6 @@ function Navbar() {
               exact
               to="/"
               activeStyle={activeStyle}
-              // style={defaultStyle}
               className="hover"
             >
               About
@@ -68,7 +54,6 @@ function Navbar() {
               exact
               to="/Products"
               activeStyle={activeStyle}
-              // style={defaultStyle}
               className="hover"
             >
               Products
@@ -80,7 +65,6 @@ function Navbar() {
               exact
               to="/Contact"
               activeStyle={activeStyle}
-              // style={defaultStyle}
               className="hover"
             >
               Contact Us
@@ -92,7 +76,6 @@ function Navbar() {
               exact
               to="/Cart"
               activeStyle={activeStyle}
-              // style={defaultStyle}
               className="hover"
             >
               Cart
@@ -101,7 +84,7 @@ function Navbar() {
         </ul>
       </div>
     </nav>
-  ];
+  );
 }
 
 export default Navbar;
