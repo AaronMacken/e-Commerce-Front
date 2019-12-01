@@ -85,7 +85,7 @@ class Cart extends Component {
         <div className="cart-page">
           <Title text={"Shopping Cart"} />
           <div className="cart-col-wrapper">
-            <div className="cart-col">
+            <div className="cart-col even">
 
               {/* LEFT TOP */}
               <div className="col-left-top">
@@ -106,12 +106,13 @@ class Cart extends Component {
                   {/* Display total, round deciaml */}
                   SubTotal: ${this.getOrderPrice(this.props.checkoutItems).toFixed(2)}
                 </h2>
+                <Checkout
+                  stripeKey="sk_test_xm5QBDRNCYEYkHMdBUtBoZes00Opnn4Bvb"
+                  amount={this.getOrderPrice(this.props.checkoutItems)}
+                  name={this.getOrderString(this.props.checkoutItems)}
+                />
               </div>
-              <Checkout
-                stripeKey=""
-                amount={this.getOrderPrice(this.props.checkoutItems)}
-                name={this.getOrderString(this.props.checkoutItems)}
-              />
+
             </div>
 
             {/* RIGHT SIDE COLUMN */}

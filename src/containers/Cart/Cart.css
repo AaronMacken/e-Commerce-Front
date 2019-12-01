@@ -18,6 +18,12 @@
   align-items: center;
   max-height: 60vh;
   overflow: scroll;
+  justify-content: center;
+}
+
+.even {
+  justify-content: space-between;
+  align-items: flex-start;
 }
 
 .cart-col:last-child {
