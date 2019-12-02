@@ -8,7 +8,7 @@ const activeStyle = { fontWeight: "700" };
 function Navbar() {
   return (
     <nav
-      className="navbar navbar-expand-lg navbar-light bg-light"
+      className="navbar navbar-expand-lg navbar-light bg-light fixed-top"
       id="myNavbar"
     >
       <p

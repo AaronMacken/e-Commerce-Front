@@ -10,6 +10,7 @@
   font-size: 1.5rem;
   font-size: 300%;
   font-family: 'Montserrat', sans-serif;
+  height: 8.1rem;
 }
 
 .navbar-nav {
@@ -44,7 +45,7 @@
 .navbar-toggler {
   font-size: 2rem;
   cursor: pointer;
-  margin-right: 1rem;
+  margin-right: 2rem !important;
 }
 
 .navbar-toggler:focus {
@@ -97,9 +98,11 @@ ul.navbar-nav {
     -ms-flex-align: center;
     align-items: center;
     width: 100vw;
-    max-width: 100%;
+    max-width: 100vw;
   }
   .nav-item {
+    margin: 0;
+    padding: 0;
     margin-bottom: 1rem;
   }
 }
