@@ -1,0 +1,11 @@
+.fa-times {
+  position: absolute;
+  right: 5px;
+  font-size: 1.75rem;
+  color: rgb(189, 189, 189);
+  animation: all .2s;
+}
+
+.fa-times:hover {
+    color: red;
+}

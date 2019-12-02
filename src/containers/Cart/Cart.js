@@ -5,6 +5,7 @@ import Checkout from "../Checkout/Checkout";
 import Title from "../../components/Title/Title";
 import LandingButton from "../../components/LandingButton/LandingButton";
 import "./Cart.css";
+import { Link } from 'react-router-dom';
 
 class Cart extends Component {
 
@@ -69,9 +70,9 @@ class Cart extends Component {
               <h2>Cart is empty</h2>
             </div>
             <div className="cart-col">
-              <a>
-                <LandingButton text={"See our products"}></LandingButton>
-              </a>
+              <Link to="/Products" style={{ textDecoration: 'none' }}>
+                <LandingButton text="See our products"></LandingButton>
+              </Link>
             </div>
           </div>
         </div>

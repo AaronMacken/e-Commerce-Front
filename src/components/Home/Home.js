@@ -4,6 +4,7 @@ import ClipTransition from "../ClipTransition/ClipTransition";
 import LandingButton from "../LandingButton/LandingButton";
 import ProductListItem from "../ProductListItem/ProductListItem";
 import Title from '../Title/Title';
+import { Link } from "react-router-dom";
 
 export default class Landing extends Component {
   static defaultProps = {
@@ -23,7 +24,7 @@ export default class Landing extends Component {
       {
         img: "prod3.jpg",
         title: "Koi Hand & Body Lotion - Lavender - 4.25oz, 200mg",
-        price: 44.99, 
+        price: 44.99,
         id: 3
       }
     ]
@@ -38,23 +39,31 @@ export default class Landing extends Component {
         <header className="header">
           <div className="landing-col">
             <h1 className="header-title">The Hippie House</h1>
-            <h2 className="header-sub">We are a CBD hemp dispensary located at <br/>10418 North Main St. Suite-P Archdale, NC 27263</h2>
-            <LandingButton text="See our products"></LandingButton>
+            <h2 className="header-sub">We are a CBD hemp dispensary located at <br />10418 North Main St. Suite-P Archdale, NC 27263</h2>
+
+            <Link to="/Products" style={{ textDecoration: 'none' }}>
+              <LandingButton text="See our products"></LandingButton>
+            </Link>
+
           </div>
         </header>
         <ClipTransition path="0 0, 100% 0%, 100% 49%, 0% 100%" color="#5c9c55" />
 
         <section className="product-list-section">
           <Title text={'Popular Products'} />
-          <ul className="product-list">
-            <ProductListItem img={product[0].img} title={product[0].title} price={product[0].price} id={product[0].id}/>
-            <ProductListItem img={product[1].img} title={product[1].title} price={product[1].price} id={product[1].id}/>
-            <ProductListItem img={product[2].img} title={product[2].title} price={product[2].price} id={product[2].id}/>
-          </ul>
-          <div className="shop-all-btn-wrapper">
-            <LandingButton text="See our products"></LandingButton>
-          </div>
           
+          <ul className="product-list">
+            <ProductListItem img={product[0].img} title={product[0].title} price={product[0].price} id={product[0].id} />
+            <ProductListItem img={product[1].img} title={product[1].title} price={product[1].price} id={product[1].id} />
+            <ProductListItem img={product[2].img} title={product[2].title} price={product[2].price} id={product[2].id} />
+          </ul>
+
+          <div className="shop-all-btn-wrapper">
+            <Link to="/Products" style={{ textDecoration: 'none' }}>
+              <LandingButton text="See our products"></LandingButton>
+            </Link>
+          </div>
+
         </section>
       </div>
     );

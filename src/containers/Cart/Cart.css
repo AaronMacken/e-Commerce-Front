@@ -33,4 +33,5 @@
 .cart-col-right {
     max-height: 60vh;
     overflow: scroll;
+    width: 50vw;
 }
