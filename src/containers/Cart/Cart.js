@@ -6,6 +6,7 @@ import Title from "../../components/Title/Title";
 import LandingButton from "../../components/LandingButton/LandingButton";
 import "./Cart.css";
 import { Link } from 'react-router-dom';
+import { removeAllItems } from "../../store/actions/itemActions";
 
 class Cart extends Component {
 
@@ -112,6 +113,7 @@ class Cart extends Component {
                   amount={this.getOrderPrice(this.props.checkoutItems)}
                   name={this.getOrderString(this.props.checkoutItems)}
                 />
+                <button onClick={this.props.removeAllItems}>Test</button>
               </div>
 
             </div>
@@ -131,4 +133,4 @@ const mapStateToProps = state => ({
   checkoutItems: state.checkoutItems.items
 });
 
-export default connect(mapStateToProps, null)(Cart);
+export default connect(mapStateToProps, { removeAllItems })(Cart);

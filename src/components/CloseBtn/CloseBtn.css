@@ -4,6 +4,7 @@
   font-size: 1.75rem;
   color: rgb(189, 189, 189);
   animation: all .2s;
+  cursor: pointer;
 }
 
 .fa-times:hover {

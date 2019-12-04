@@ -1,4 +1,4 @@
-import { ADD_ITEM, REMOVE_ITEM } from "../actions/actionTypes";
+import { ADD_ITEM, REMOVE_ITEM, REMOVE_ALL_ITEMS } from "../actions/actionTypes";
 
 const initialState = {
   items: []
@@ -22,6 +22,10 @@ export default function(state = initialState, action) {
         ...state,
         items: newItems
       }
+      case REMOVE_ALL_ITEMS:
+        return {
+          items: []
+        }
     default:
       return state;
   }
