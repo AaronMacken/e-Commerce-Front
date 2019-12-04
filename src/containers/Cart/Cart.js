@@ -6,9 +6,12 @@ import Title from "../../components/Title/Title";
 import LandingButton from "../../components/LandingButton/LandingButton";
 import "./Cart.css";
 import { Link } from 'react-router-dom';
-import { removeAllItems } from "../../store/actions/itemActions";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 class Cart extends Component {
+
+  notify = () => toast("Wow so easy !");
 
   // Get unique array names along with the number of occurences
   getDisplayData(reduxState) {
@@ -69,6 +72,13 @@ class Cart extends Component {
           <div className="cart-col-wrapper">
             <div className="cart-col">
               <h2>Cart is empty</h2>
+
+
+              <button onClick={this.notify}>Notify !</button>
+              <ToastContainer />
+
+
+
             </div>
             <div className="cart-col">
               <Link to="/Products" style={{ textDecoration: 'none' }}>
@@ -109,11 +119,10 @@ class Cart extends Component {
                   SubTotal: ${this.getOrderPrice(this.props.checkoutItems).toFixed(2)}
                 </h2>
                 <Checkout
-                  stripeKey="sk_test_xm5QBDRNCYEYkHMdBUtBoZes00Opnn4Bvb"
+                  stripeKey=""
                   amount={this.getOrderPrice(this.props.checkoutItems)}
                   name={this.getOrderString(this.props.checkoutItems)}
                 />
-                <button onClick={this.props.removeAllItems}>Test</button>
               </div>
 
             </div>
@@ -133,4 +142,4 @@ const mapStateToProps = state => ({
   checkoutItems: state.checkoutItems.items
 });
 
-export default connect(mapStateToProps, { removeAllItems })(Cart);
+export default connect(mapStateToProps, null)(Cart);

@@ -3,6 +3,7 @@ import StripeCheckout from "react-stripe-checkout";
 import axios from "axios";
 import { connect } from "react-redux";
 import "./Checkout.css";
+import { removeAllItems } from '../../store/actions/itemActions';
 
 class Checkout extends React.Component {
   constructor(props) {
@@ -29,8 +30,11 @@ class Checkout extends React.Component {
     const { status } = response.data;
     if (status === 'success') {
       console.log('success')
+      this.props.removeAllItems();
+
     } else {
       console.log('failure');
+
     }
   }
 
@@ -57,4 +61,4 @@ const mapStateToProps = state => ({
   checkoutItems: state.checkoutItems.items
 });
 
-export default connect(mapStateToProps, null)(Checkout);
+export default connect(mapStateToProps, { removeAllItems })(Checkout);
