@@ -5,7 +5,7 @@ import Footer from "../components/Footer/Footer";
 import { BrowserRouter as Router } from "react-router-dom";
 import { Provider } from "react-redux";
 import {store} from "../store";
-// import {persistor} from "../store";
+import {persistor} from "../store";
 import { PersistGate } from "redux-persist/integration/react";
 
 class App extends Component {
@@ -13,13 +13,13 @@ class App extends Component {
     return (
       <Provider store={store}>
         <Router>
-          {/* <PersistGate loading={null} persistor={persistor}> */}
+          <PersistGate loading={null} persistor={persistor}>
             <div className="App">
               <Navbar />
               <Main />
               <Footer />
             </div>
-          {/* </PersistGate> */}
+          </PersistGate>
         </Router>
       </Provider>
     );
