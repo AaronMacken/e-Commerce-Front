@@ -3,9 +3,22 @@ import StripeCheckout from "react-stripe-checkout";
 import axios from "axios";
 import { connect } from "react-redux";
 import "./Checkout.css";
-import { removeAllItems } from '../../store/actions/itemActions';
+import { removeAllItems } from "../../store/actions/itemActions";
+import { toast } from "react-toastify";
 
 class Checkout extends React.Component {
+
+  // toast functions
+  notifySuccess = () =>
+    toast(`Thanks for shopping! Your receipt will be e-mailed shortly.`, {
+      className: "successToast"
+    });
+  notifyFailure = () =>
+    toast(
+      `Something went wrong during the transaction. If this continues, please give us a call!`,
+      { className: "failureToast", progressClassName: "failBackground" }
+    );
+
   constructor(props) {
     super(props);
     this.onToken = this.onToken.bind(this);
@@ -28,17 +41,13 @@ class Checkout extends React.Component {
     });
 
     const { status } = response.data;
-    if (status === 'success') {
-      console.log('success')
+    if (status === "success") {
       this.props.removeAllItems();
-
+      this.notifySuccess();
     } else {
-      console.log('failure');
-
+      this.notifyFailure();
     }
   }
-
-
 
   render() {
     return (

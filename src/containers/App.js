@@ -7,6 +7,7 @@ import { Provider } from "react-redux";
 import {store} from "../store";
 import {persistor} from "../store";
 import { PersistGate } from "redux-persist/integration/react";
+import { ToastContainer, toast } from 'react-toastify';
 
 class App extends Component {
   render() {
@@ -16,6 +17,7 @@ class App extends Component {
           <PersistGate loading={null} persistor={persistor}>
             <div className="App">
               <Navbar />
+              <ToastContainer/>
               <Main />
               <Footer />
             </div>
