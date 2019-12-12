@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import QtySelector from "../../components/QtySelector/QtySelector";
 import "./ProductListItem.css";
 import { addItem } from "../../store/actions/itemActions";
 import { connect } from "react-redux";
@@ -38,6 +39,10 @@ class ProductListItem extends Component {
         ></img>
         <h2 className="product-list-item-title">{`${title}`}</h2>
         <span className="product-list-item-price">{`$${price}`}</span>
+
+
+        <QtySelector />
+
         <button className="product-list-item-add" onClick={this.addToCart}>
           Add to cart
         </button>
