@@ -12,7 +12,7 @@ class Cart extends Component {
   // Get unique array names along with the number of occurences
   getDisplayData(reduxState) {
     // create an array with each of the redux element strings
-    let itemArray = reduxState.map(item => item.data.title);
+    let itemArray = reduxState.map(item => item.title);
 
     // create associative array object
     let newArr = {};
@@ -43,7 +43,7 @@ class Cart extends Component {
   getOrderPrice(reduxState) {
     let total = 0;
     reduxState.forEach(item => {
-      total += item.data.price;
+      total += item.price;
     });
     return total;
   }
@@ -52,9 +52,9 @@ class Cart extends Component {
     // CART ITEMS FROM REDUX STATE
     let cartItems = this.props.checkoutItems.map((item, index) => (
       <CartItem
-        title={item.data.title}
-        price={item.data.price}
-        img={item.data.img}
+        title={item.title}
+        price={item.price}
+        img={item.img}
         index={index}
       />
     ));
