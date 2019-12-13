@@ -1,38 +1,45 @@
 .qty-selector-wrapper {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 .qty-input {
-    border: none;
-    padding: .5rem;
-    font-size: 1.5rem;
-    text-align: center;
-    height: auto;
-    width: 10rem;
+  border: none;
+  padding: 0.5rem;
+  font-size: 1.5rem;
+  text-align: center;
+  height: auto;
+  width: 10rem;
 }
 
 .qty-input:focus {
-    outline-color: rgb(13, 78, 13);
+  outline: none;
 }
 
-.chevron {
-    background: white;
-    border: 1px solid #c3c3c3;
-    border-radius: 100%;
-    margin: 0px 5px;
-    padding: 0px;
-    height: 23px;
-    width: 23px;
-    line-height: 0px;
-    font-size: 2rem;
-    font-weight: 500;
+.counter-btn {
+  background: white;
+  border: 1px solid #c3c3c3;
+  border-radius: 100%;
+  margin: 5px 5px;
+  padding: 0px;
+  height: 23px;
+  width: 23px;
+  line-height: 0px;
+  font-size: 2rem;
+  font-weight: 500;
 }
 
-.chevron-left {
-    margin-right: 1rem;
+.counter-btn:focus {
+  outline: none;
 }
 
-.chevron:focus {
-    outline-color: rgb(13, 78, 13);
+.decrement {
+  padding-bottom: 5px;
+  margin-right: 2rem;
 }
+
+.increment {
+  padding-left: 1px;
+}
+
+

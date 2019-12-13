@@ -28,7 +28,7 @@ export default class QtySelector extends Component {
     return (
       <div className="qty-selector-wrapper">
         <button
-          className="chevron-left chevron"
+          className="decrement counter-btn"
           onClick={this.handleInputDecrement}
         >-</button>
 
@@ -41,7 +41,7 @@ export default class QtySelector extends Component {
         ></input>
         
         <button
-          className="chevron-right chevron"
+          className="increment counter-btn"
           onClick={this.handleInputIncrement}
         >+</button>
       </div>
