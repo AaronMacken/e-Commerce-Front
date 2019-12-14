@@ -83,6 +83,9 @@ export default function(state = initialState, action) {
         var newItemArray = state.items.map((item, index) => {
           if(index === action.payload) {
             item.qty--
+            if(item.qty < 1) {
+              item.qty = 1;
+            }
             return item
           }
           return item
