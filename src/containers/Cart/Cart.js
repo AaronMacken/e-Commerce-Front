@@ -9,43 +9,19 @@ import { Link } from "react-router-dom";
 import "react-toastify/dist/ReactToastify.css";
 
 class Cart extends Component {
-  // Get unique array names along with the number of occurences
-  getDisplayData(reduxState) {
-    // create an array with each of the redux element strings
-    let itemArray = reduxState.map(item => item.title);
-
-    // create associative array object
-    let newArr = {};
-
-    // assign key value pairs to that object.
-    // Key being the array value and the value being the number of occurences
-    itemArray.forEach(i => {
-      newArr[i] = (newArr[i] || 0) + 1;
-    });
-
-    // create new array to store key value pairs from the associative array object
-    let orderArr = [];
-    for (let item in newArr) {
-      orderArr.push(`${item} x${newArr[item]}`);
-    }
-
-    // return that array to be used for displaying data and sending data to back end
-    return orderArr;
-  }
-
-  // use array returned from previous function along with the join method to create string to send to back end
   getOrderString(reduxState) {
-    return this.getDisplayData(reduxState).join(", ");
+    let orderItems = reduxState.map((item, index) => {
+      return `${item.title} x${item.qty}`
+    });
+    return orderItems.join(", ");
   }
 
-  // get order price fn
-  // add all item prices to a total variable and return that var
   getOrderPrice(reduxState) {
-    let total = 0;
+    let subTotal = 0;
     reduxState.forEach(item => {
-      total += item.price;
+      subTotal += item.qty * item.price;
     });
-    return total;
+    return subTotal;
   }
 
   render() {
@@ -60,7 +36,6 @@ class Cart extends Component {
         qty={item.qty}
       />
     ));
-
     // ------------------------------ RENDER EMPTY CART COMPONENT ------------------------- //
     if (this.props.checkoutItems.length < 1) {
       return (
@@ -69,8 +44,6 @@ class Cart extends Component {
           <div className="cart-col-wrapper">
             <div className="cart-col">
               <h2>Cart is empty</h2>
-
-    
             </div>
             <div className="cart-col">
               <Link to="/Products" style={{ textDecoration: "none" }}>
@@ -80,7 +53,6 @@ class Cart extends Component {
           </div>
         </div>
       );
-
       // ------------------------------- RENDER FULL CART COMPONENT --------------------------- //
     } else {
       return (
@@ -93,16 +65,13 @@ class Cart extends Component {
                 {/* display data */}
                 <h2 className="sub-total">Order</h2>
                 <ul className="cart-items-list">
-                  {/* use getDisplayData function with map to return jsx elements of the returned array */}
-                  {this.getDisplayData(this.props.checkoutItems).map(
-                    (item, index) => {
-                      return (
-                        <li key={index} className="cart-item-li">
-                          {item}
-                        </li>
-                      );
-                    }
-                  )}
+                  {this.props.checkoutItems.map((item, index) => {
+                    return (
+                      <li key={index} className="cart-item-li">
+                        {item.title} x{item.qty}
+                      </li>
+                    );
+                  })}
                 </ul>
               </div>
 
