@@ -1,4 +1,4 @@
-import { ADD_ITEM, REMOVE_ITEM, REMOVE_ALL_ITEMS } from "./actionTypes";
+import { ADD_ITEM, REMOVE_ITEM, REMOVE_ALL_ITEMS, DECREASE_QTY, INCREASE_QTY } from "./actionTypes";
 
 export function addItem(itemData) {
     return {
@@ -17,5 +17,19 @@ export function removeItem(itemId) {
 export function removeAllItems() {
     return {
         type: REMOVE_ALL_ITEMS
+    }
+}
+
+export function increaseQty(itemId) {
+    return {
+        type: INCREASE_QTY,
+        payload: itemId
+    }
+}
+
+export function decreaseQty(itemId) {
+    return {
+        type: DECREASE_QTY,
+        payload: itemId
     }
 }

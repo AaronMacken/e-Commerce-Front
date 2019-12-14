@@ -56,6 +56,8 @@ class Cart extends Component {
         price={item.price}
         img={item.img}
         index={index}
+        id={item.id}
+        qty={item.qty}
       />
     ));
 

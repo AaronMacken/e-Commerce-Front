@@ -1,23 +1,32 @@
 import React, { Component } from "react";
 import "./CartItem.css";
-import CloseBtn from '../../components/CloseBtn/CloseBtn';
+import CloseBtn from "../../components/CloseBtn/CloseBtn";
 import { connect } from "react-redux";
-import { removeItem } from "../../store/actions/itemActions";
+import { removeItem, increaseQty, decreaseQty } from "../../store/actions/itemActions";
 
 class CartItem extends Component {
   constructor(props) {
-    super(props)
+    super(props);
     this.removeFromCart = this.removeFromCart.bind(this);
+    this.increaseQuantity = this.increaseQuantity.bind(this);
+    this.decreaseQuantity = this.decreaseQuantity.bind(this);
   }
-  
+
   // calls action from props that removes an index from the array
   removeFromCart() {
     this.props.removeItem(this.props.index);
   }
 
+  increaseQuantity() {
+    this.props.increaseQty(this.props.index);
+  }
+
+  decreaseQuantity() {
+    this.props.decreaseQty(this.props.index);
+  }
 
   render() {
-    const { title, price, img, index } = this.props;
+    const { title, price, img, index, qty } = this.props;
     return (
       <div className="cart-item" key={index}>
         <CloseBtn className="cart-item-close" onClick={this.removeFromCart}>
@@ -27,10 +36,35 @@ class CartItem extends Component {
         <div className="cart-item-col">
           <h2>{title}</h2>
           <h3>${price}</h3>
+
+          {/* <QtySelector /> */}
+          <div className="qty-selector-wrapper">
+            <button
+              className="decrement counter-btn"
+              onClick={this.decreaseQuantity}
+            >
+              -
+            </button>
+
+            <input
+              type="number"
+              placeholder="Qty"
+              readOnly
+              className="qty-input"
+              value={qty}
+            ></input>
+
+            <button
+              className="increment counter-btn"
+              onClick={this.increaseQuantity}
+            >
+              +
+            </button>
+          </div>
         </div>
       </div>
     );
   }
 }
 
-export default connect(null, { removeItem })(CartItem);
+export default connect(null, { removeItem, increaseQty, decreaseQty })(CartItem);
