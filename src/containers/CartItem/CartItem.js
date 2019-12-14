@@ -35,7 +35,7 @@ class CartItem extends Component {
         <img className="cart-item-img" src={`/${img}`}></img>
         <div className="cart-item-col">
           <h2>{title}</h2>
-          <h3>${price}</h3>
+          <h3>${(price * qty).toFixed(2)}</h3>
 
           {/* <QtySelector /> */}
           <div className="qty-selector-wrapper">
