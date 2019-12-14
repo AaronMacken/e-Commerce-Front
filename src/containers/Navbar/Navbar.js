@@ -12,7 +12,11 @@ class Navbar extends React.Component {
   // Function simply displays the number of objects in redux state, 
   // i.e. the number of items in the cart
   getCartQty(reduxState) {
-    return reduxState.length;
+    let total = 0;
+    reduxState.forEach(item => {
+      total += item.qty;
+    })
+    return total;
   }
 
   render() {
