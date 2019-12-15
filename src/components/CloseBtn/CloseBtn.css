@@ -1,10 +1,10 @@
 .fa-times {
-  position: absolute;
-  right: 20px;
   font-size: 1.75rem;
   color: rgb(189, 189, 189);
   animation: all .2s;
   cursor: pointer;
+  margin-left: auto;
+
 }
 
 .fa-times:hover {

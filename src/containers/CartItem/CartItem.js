@@ -29,9 +29,6 @@ class CartItem extends Component {
     const { title, price, img, index, qty } = this.props;
     return (
       <div className="cart-item" key={index}>
-        <CloseBtn className="cart-item-close" onClick={this.removeFromCart}>
-          X
-        </CloseBtn>
         <img className="cart-item-img" src={`/${img}`}></img>
         <div className="cart-item-col">
           <h2>{title}</h2>
@@ -62,6 +59,9 @@ class CartItem extends Component {
             </button>
           </div>
         </div>
+        <CloseBtn className="cart-item-close" onClick={this.removeFromCart}>
+          X
+        </CloseBtn>
       </div>
     );
   }
