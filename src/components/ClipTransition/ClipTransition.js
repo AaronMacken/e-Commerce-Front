@@ -11,10 +11,8 @@ const Container = styled.div`
 export default class LandingButton extends Component {
   render() {
     return (
-        // path prop given when instantiated and passed to the styled div
-        // #23c9ce
-        // #4bde75
       <Container path={this.props.path} color={this.props.color}/>
     );
   }
 }
+
