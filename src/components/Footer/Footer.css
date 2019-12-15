@@ -13,9 +13,30 @@
   font-weight: 400;
 }
 
-.footer-col-left {
+.footer-col {
   width: 36rem;
+  height: 15rem;
 }
-.footer-col-right {
-  width: 36rem;
+
+@media only screen and (max-width: 800px) {
+  .footer-section {
+    flex-direction: column;
+    justify-content: space-evenly;
+  }
+
+  .footer-col {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .footer-col {
+    width: auto;
+  }
+  .info {
+    padding: 0 1rem;
+  }
 }

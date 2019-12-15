@@ -36,6 +36,7 @@ class Cart extends Component {
         qty={item.qty}
       />
     ));
+
     // ------------------------------ RENDER EMPTY CART COMPONENT ------------------------- //
     if (this.props.checkoutItems.length < 1) {
       return (
@@ -53,6 +54,7 @@ class Cart extends Component {
           </div>
         </div>
       );
+      
       // ------------------------------- RENDER FULL CART COMPONENT --------------------------- //
     } else {
       return (
@@ -83,7 +85,7 @@ class Cart extends Component {
                   {this.getOrderPrice(this.props.checkoutItems).toFixed(2)}
                 </h2>
                 <Checkout
-                  stripeKey=""
+                  stripeKey='pk_test_VkrWbkMQcpSVIJNdi7WNytR100X1frIfAN'
                   amount={this.getOrderPrice(this.props.checkoutItems)}
                   name={this.getOrderString(this.props.checkoutItems)}
                 />

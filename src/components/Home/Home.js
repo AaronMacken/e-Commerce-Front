@@ -35,7 +35,7 @@ export default class Landing extends Component {
     const product = this.props.popularProducts;
 
     return (
-      <div>
+      <div className="landingPage">
         <header className="header">
           <div className="landing-col">
             <h1 className="header-title">The Hippie House</h1>

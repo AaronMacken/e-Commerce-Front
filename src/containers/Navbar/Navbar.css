@@ -106,3 +106,21 @@ ul.navbar-nav {
     margin-bottom: 1rem;
   }
 }
+
+@media only screen and (max-width: 800px) {
+  .navbar-brand {
+    margin-left: 2rem;
+  }
+}
+
+@media only screen and (max-width: 475px) {
+  .navbar-brand {
+    font-size: 4rem;
+  }
+}
+
+@media only screen and (max-width: 390px) {
+  .navbar-brand {
+    font-size: 3rem;
+  }
+}
