@@ -25,3 +25,16 @@ body {
   margin-top: 8rem;
   max-width: 100vw;
 }
+
+@media only screen and (max-width: 475px) {
+  body {
+    margin-top: 6.6rem;
+  }
+}
+
+@media only screen and (max-width: 390px) {
+  body {
+    margin-top: 5rem;
+  }
+}
+
