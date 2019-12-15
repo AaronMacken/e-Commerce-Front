@@ -10,3 +10,9 @@
 .fa-times:hover {
     color: red;
 }
+
+@media only screen and (max-width: 475px) {
+  .fa-times {
+    align-self: end;
+  }
+}

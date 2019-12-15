@@ -140,33 +140,32 @@ class Cart extends Component {
                 })}
               </ul>
             </div>
-
-            {/* LEFT BOTTOM */}
-            <div className="col-left-bottom">
-              <h2 className="sub-total">
-                {/* Display total, round deciaml */}
-                SubTotal: $
+          </div>
+          {/* LEFT BOTTOM */}
+          <div className="col-left-bottom">
+            <h2 className="sub-total">
+              {/* Display total, round deciaml */}
+              SubTotal: $
                 {this.getOrderPrice(this.props.checkoutItems).toFixed(2)}
-              </h2>
-              <Checkout
-                stripeKey='pk_test_VkrWbkMQcpSVIJNdi7WNytR100X1frIfAN'
-                amount={this.getOrderPrice(this.props.checkoutItems)}
-                name={this.getOrderString(this.props.checkoutItems)}
-              />
-            </div>
+            </h2>
+            <Checkout
+              stripeKey='pk_test_VkrWbkMQcpSVIJNdi7WNytR100X1frIfAN'
+              amount={this.getOrderPrice(this.props.checkoutItems)}
+              name={this.getOrderString(this.props.checkoutItems)}
+            />
           </div>
         </div>
       </div>
 
 
-    if(isDesktop) {
-      if(this.props.checkoutItems.length < 1) {
+    if (isDesktop) {
+      if (this.props.checkoutItems.length < 1) {
         return (emptyCartComponent)
       } else {
         return (fullCartComponentBig)
       }
     } else {
-      if(this.props.checkoutItems.length < 1) {
+      if (this.props.checkoutItems.length < 1) {
         return (emptyCartComponent)
       } else {
         return (fullCartComponentSmall)
