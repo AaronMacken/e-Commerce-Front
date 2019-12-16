@@ -32,9 +32,6 @@ class Cart extends Component {
     this.setState({ isDesktop: window.innerWidth > 975 });
   }
 
-
-
-
   getOrderString(reduxState) {
     let orderItems = reduxState.map((item, index) => {
       return `${item.title} x${item.qty}`
@@ -64,7 +61,7 @@ class Cart extends Component {
       />
     ));
 
-    let emptyCartComponent =
+    let emptyCartComponentBig =
       <div className="cart-page">
         <Title text={"Shopping Cart"} />
         <div className="cart-col-wrapper">
@@ -72,6 +69,21 @@ class Cart extends Component {
             <h2>Cart is empty</h2>
           </div>
           <div className="cart-col">
+            <Link to="/Products" style={{ textDecoration: "none" }}>
+              <LandingButton text="See our products"></LandingButton>
+            </Link>
+          </div>
+        </div>
+      </div>
+
+    let emptyCartComponentSmall =
+      <div className="cart-page">
+        <Title text={"Shopping Cart"} />
+        <div className="cart-col-wrapper">
+          <div className="cart-col-small">
+            <h2>Cart is empty</h2>
+          </div>
+          <div className="cart-col-small">
             <Link to="/Products" style={{ textDecoration: "none" }}>
               <LandingButton text="See our products"></LandingButton>
             </Link>
@@ -160,13 +172,13 @@ class Cart extends Component {
 
     if (isDesktop) {
       if (this.props.checkoutItems.length < 1) {
-        return (emptyCartComponent)
+        return (emptyCartComponentBig)
       } else {
         return (fullCartComponentBig)
       }
     } else {
       if (this.props.checkoutItems.length < 1) {
-        return (emptyCartComponent)
+        return (emptyCartComponentSmall)
       } else {
         return (fullCartComponentSmall)
       }

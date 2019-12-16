@@ -85,11 +85,15 @@
     max-height: initial;
   }
 
+  .cart-col-small {
+    margin-bottom: 3rem;
+    overflow: initial;
+    max-height: initial;
+  }
   .cart-col {
     margin-bottom: 3rem;
     overflow: initial;
     max-height: initial;
-
     border: 2px solid green;
   }
 }
