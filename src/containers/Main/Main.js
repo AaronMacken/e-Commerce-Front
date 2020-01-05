@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Home from "../../components/Home/Home";
-import Products from "../../components/Products/Products";
+import Products from "../Products/Products";
 import { Switch, Route, withRouter } from "react-router-dom";
 import Contact from "../../components/Contact/Contact";
 import Cart from "../Cart/Cart";

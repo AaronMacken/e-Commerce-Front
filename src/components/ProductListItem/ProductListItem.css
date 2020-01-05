@@ -4,8 +4,6 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 30rem;
-    height: 50rem;
   }
   
   .product-list-item-img {
@@ -17,7 +15,6 @@
   .product-list-item-title {
     margin: 1rem;
     max-width: 30rem;
-    height: 5rem;
   }
 
   .product-list-item-price {

@@ -44,7 +44,7 @@ class ProductListItem extends Component {
     return (
       <li className="product-list-item">
         <img
-          src={`/${img}`}
+          src={`${img}`}
           className="product-list-item-img"
         ></img>
         <h2 className="product-list-item-title">{`${title}`}</h2>
