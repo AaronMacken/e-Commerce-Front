@@ -5,6 +5,7 @@ import LandingButton from "../LandingButton/LandingButton";
 import ProductListItem from "../ProductListItem/ProductListItem";
 import Title from '../Title/Title';
 import { Link } from "react-router-dom";
+import Grid from '@material-ui/core/Grid';
 
 export default class Landing extends Component {
   static defaultProps = {
@@ -51,12 +52,20 @@ export default class Landing extends Component {
 
         <section className="product-list-section">
           <Title text={'Popular Products'} />
-          
-          <ul className="product-list">
-            <ProductListItem img={product[0].img} title={product[0].title} price={product[0].price} id={product[0].id} />
-            <ProductListItem img={product[1].img} title={product[1].title} price={product[1].price} id={product[1].id} />
-            <ProductListItem img={product[2].img} title={product[2].title} price={product[2].price} id={product[2].id} />
-          </ul>
+
+          <Grid container spacing={3}>
+            <Grid item xs={12} lg={4}>
+              <ProductListItem img={product[0].img} title={product[0].title} price={product[0].price} id={product[0].id} />
+            </Grid>
+            <Grid item xs={12} md={6} lg={4}>
+              <ProductListItem img={product[1].img} title={product[1].title} price={product[1].price} id={product[1].id} />
+            </Grid>
+            <Grid item xs={12} md={6} lg={4}>
+              <ProductListItem img={product[2].img} title={product[2].title} price={product[2].price} id={product[2].id} />
+            </Grid>
+          </Grid>
+
+
 
           <div className="shop-all-btn-wrapper">
             <Link to="/Products" style={{ textDecoration: 'none' }}>

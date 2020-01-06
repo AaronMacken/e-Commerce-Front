@@ -29,7 +29,7 @@ class CartItem extends Component {
     const { title, price, img, index, qty } = this.props;
     return (
       <div className="cart-item" key={index}>
-        <img className="cart-item-img" src={`/${img}`}></img>
+        <img className="cart-item-img" src={`${img}`}></img>
         <div className="cart-item-col">
           <h2>{title}</h2>
           <h3>${(price * qty).toFixed(2)}</h3>
