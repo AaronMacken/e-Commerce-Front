@@ -69,18 +69,18 @@ export default function(state = initialState, action) {
 
     // ----------- INCREASE ITEM QTY --------------------- INCREASE ITEM QTY ------ //
     case INCREASE_QTY:
-      var newItemArray = state.items.map((item, index) => {
+      var newItemArrayI = state.items.map((item, index) => {
         if(index === action.payload) {
           item.qty++
           return item
         }
         return item
       })
-      return {...state, items: newItemArray}
+      return {...state, items: newItemArrayI}
 
     // ----------- INCREASE ITEM QTY --------------------- INCREASE ITEM QTY ------ //
     case DECREASE_QTY:
-        var newItemArray = state.items.map((item, index) => {
+        var newItemArrayD = state.items.map((item, index) => {
           if(index === action.payload) {
             item.qty--
             if(item.qty < 1) {
@@ -90,7 +90,7 @@ export default function(state = initialState, action) {
           }
           return item
         })
-        return {...state, items: newItemArray}
+        return {...state, items: newItemArrayD}
 
     default:
       return state;

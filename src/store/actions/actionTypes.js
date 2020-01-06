@@ -3,4 +3,3 @@ export const REMOVE_ITEM = "REMOVE_ITEM";
 export const REMOVE_ALL_ITEMS = "REMOVE_ALL_ITEMS";
 export const INCREASE_QTY = "INCREASE_QTY";
 export const DECREASE_QTY = "DECREASE_QTY";
-export const LOAD_ITEMS = "LOAD_ITEMS";

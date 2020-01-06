@@ -92,7 +92,7 @@ class Navbar extends React.Component {
                 activeStyle={activeStyle}
                 className="hover"
               >
-                <i class="fas fa-shopping-cart"></i>
+                <i className="fas fa-shopping-cart"></i>
                 &nbsp;
                 {this.getCartQty(this.props.checkoutItems)}
               </NavLink>
