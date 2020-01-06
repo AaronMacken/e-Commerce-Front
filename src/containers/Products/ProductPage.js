@@ -3,14 +3,15 @@ import './Products.css';
 import Title from '../../components/Title/Title';
 import axios from 'axios';
 import Items from './Items';
+import Pagination from './Pagination';
 
 
-const Products = (props) => {
+const Products = () => {
   // create state values using useState
   const [items, setItems] = useState([]);
   const [loading, setLoading] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
-  const [postsPerPage, setPostsPerPage] = useState(10);
+  const [itemsPerPage] = useState(3);
 
   // call useEffect to get json from api - aka componentDidMount
   useEffect(() => {
@@ -23,12 +24,21 @@ const Products = (props) => {
     fetchPosts();
   }, [])
 
-  console.log(items);
+  // get current posts
+  const indexOfLastItem = currentPage * itemsPerPage;
+  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+  const currentItems = items.slice(indexOfFirstItem, indexOfLastItem);
+
+  // change page
+  const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
   return (
     <div className="products-page">
       <Title text={'Products'} />
-      <Items items={items} loading={loading} />
+      <Items items={currentItems} loading={loading} />
+      <Pagination itemsPerPage={itemsPerPage} totalItems={items.length}
+      paginate={paginate}
+      />
     </div>
   );
 
