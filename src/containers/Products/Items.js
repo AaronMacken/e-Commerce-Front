@@ -5,7 +5,7 @@ import Grid from '@material-ui/core/Grid';
 const Items = ({ items, loading }) => {
     let products = items.map((e) => (
         <Grid item xs={12} md={6} lg={4} key={e._id}>
-            <ProductListItem img="https://hemp-xr.com/wp-content/uploads/2019/12/hemp-xr-oil.jpg"
+            <ProductListItem img={e.productImage}
                 title={e.title} price={e.price} id={e._id} />
         </Grid>
     ))

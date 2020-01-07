@@ -11,7 +11,7 @@ const Products = () => {
   const [items, setItems] = useState([]);
   const [loading, setLoading] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
-  const [itemsPerPage] = useState(3);
+  const [itemsPerPage] = useState(10);
 
   // call useEffect to get json from api - aka componentDidMount
   useEffect(() => {
