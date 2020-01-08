@@ -1,6 +1,5 @@
 .cart-item {
     position: relative;
-    width: 75%;
     display: flex;
     flex-direction: row;
     padding: 2rem;
@@ -23,7 +22,7 @@
 
 .cart-item-img {
     height: 12rem;
-    width: 12rem;
+    width: auto;
     margin-right: 1rem;
 }
 
