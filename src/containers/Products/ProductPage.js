@@ -12,7 +12,7 @@ const Products = () => {
   const [searchBarValue, setSearchBarValue] = useState("");
   const [loading, setLoading] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
-  const [itemsPerPage] = useState(1);
+  const [itemsPerPage] = useState(9);
 
   // call useEffect to get json from api - aka componentDidMount
   useEffect(() => {
@@ -40,7 +40,11 @@ const Products = () => {
   return (
     <div className="products-page">
       <Title text={'Products'} />
-      <input type="text" value={searchBarValue} onChange={e => setSearchBarValue(e.target.value)}></input>
+      <input type="text" value={searchBarValue}
+        onChange={e => setSearchBarValue(e.target.value)}
+        placeholder="Search products"
+        className="filterInput"
+        ></input>
       <Items items={currentItems} loading={loading} />
       <Pagination itemsPerPage={itemsPerPage} totalItems={items.length}
         paginate={paginate}
