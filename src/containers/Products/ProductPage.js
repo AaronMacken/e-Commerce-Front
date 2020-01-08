@@ -9,9 +9,10 @@ import Pagination from './Pagination';
 const Products = () => {
   // create state values using useState
   const [items, setItems] = useState([]);
+  const [searchBarValue, setSearchBarValue] = useState("");
   const [loading, setLoading] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
-  const [itemsPerPage] = useState(10);
+  const [itemsPerPage] = useState(1);
 
   // call useEffect to get json from api - aka componentDidMount
   useEffect(() => {
@@ -24,10 +25,14 @@ const Products = () => {
     fetchPosts();
   }, [])
 
+  let filteredProducts = items.filter(product => {
+    return product.title.toLowerCase().indexOf(searchBarValue.toLowerCase()) !== -1;
+  });
+
   // get current posts
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
-  const currentItems = items.slice(indexOfFirstItem, indexOfLastItem);
+  const currentItems = filteredProducts.slice(indexOfFirstItem, indexOfLastItem);
 
   // change page
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
@@ -35,9 +40,10 @@ const Products = () => {
   return (
     <div className="products-page">
       <Title text={'Products'} />
+      <input type="text" value={searchBarValue} onChange={e => setSearchBarValue(e.target.value)}></input>
       <Items items={currentItems} loading={loading} />
       <Pagination itemsPerPage={itemsPerPage} totalItems={items.length}
-      paginate={paginate}
+        paginate={paginate}
       />
     </div>
   );
