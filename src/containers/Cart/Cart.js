@@ -10,11 +10,11 @@ import "react-toastify/dist/ReactToastify.css";
 
 class Cart extends Component {
   constructor(props) {
-    super(props)
+    super(props);
 
     this.state = {
       isDesktop: false
-    }
+    };
 
     this.updatePredicate = this.updatePredicate.bind(this);
   }
@@ -34,7 +34,7 @@ class Cart extends Component {
 
   getOrderString(reduxState) {
     let orderItems = reduxState.map((item, index) => {
-      return `${item.title} x${item.qty}`
+      return `${item.title} x${item.qty}`;
     });
     return orderItems.join(", ");
   }
@@ -45,6 +45,13 @@ class Cart extends Component {
       subTotal += item.qty * item.price;
     });
     return subTotal;
+  }
+
+  getOrderData(reduxState) {
+    let dataArray = reduxState.map(e => {
+      return {id: e.id, qty: e.qty}
+    })
+    return dataArray;
   }
 
   render() {
@@ -61,7 +68,7 @@ class Cart extends Component {
       />
     ));
 
-    let emptyCartComponentBig =
+    let emptyCartComponentBig = (
       <div className="cart-page">
         <Title text={"Shopping Cart"} />
         <div className="cart-col-wrapper">
@@ -75,8 +82,9 @@ class Cart extends Component {
           </div>
         </div>
       </div>
+    );
 
-    let emptyCartComponentSmall =
+    let emptyCartComponentSmall = (
       <div className="cart-page">
         <Title text={"Shopping Cart"} />
         <div className="cart-col-wrapper">
@@ -90,8 +98,9 @@ class Cart extends Component {
           </div>
         </div>
       </div>
+    );
 
-    let fullCartComponentBig =
+    let fullCartComponentBig = (
       <div className="cart-page">
         <Title text={"Shopping Cart"} />
         <div className="cart-col-wrapper">
@@ -119,10 +128,12 @@ class Cart extends Component {
                 {this.getOrderPrice(this.props.checkoutItems).toFixed(2)}
               </h2>
               <Checkout
-                stripeKey='pk_test_VkrWbkMQcpSVIJNdi7WNytR100X1frIfAN'
+                stripeKey="pk_test_VkrWbkMQcpSVIJNdi7WNytR100X1frIfAN"
                 amount={this.getOrderPrice(this.props.checkoutItems)}
+                data={this.getOrderData(this.props.checkoutItems)}
                 name={this.getOrderString(this.props.checkoutItems)}
               />
+              
             </div>
           </div>
 
@@ -130,8 +141,9 @@ class Cart extends Component {
           <div className="cart-col-right">{cartItems}</div>
         </div>
       </div>
+    );
 
-    let fullCartComponentSmall =
+    let fullCartComponentSmall = (
       <div className="cart-page">
         <Title text={"Shopping Cart"} />
         <div className="cart-col-wrapper">
@@ -158,29 +170,30 @@ class Cart extends Component {
             <h2 className="sub-total">
               {/* Display total, round deciaml */}
               SubTotal: $
-                {this.getOrderPrice(this.props.checkoutItems).toFixed(2)}
+              {this.getOrderPrice(this.props.checkoutItems).toFixed(2)}
             </h2>
             <Checkout
-              stripeKey='pk_test_VkrWbkMQcpSVIJNdi7WNytR100X1frIfAN'
+              stripeKey="pk_test_VkrWbkMQcpSVIJNdi7WNytR100X1frIfAN"
               amount={this.getOrderPrice(this.props.checkoutItems)}
+              data={this.getOrderData(this.props.checkoutItems)}
               name={this.getOrderString(this.props.checkoutItems)}
             />
           </div>
         </div>
       </div>
-
+    );
 
     if (isDesktop) {
       if (this.props.checkoutItems.length < 1) {
-        return (emptyCartComponentBig)
+        return emptyCartComponentBig;
       } else {
-        return (fullCartComponentBig)
+        return fullCartComponentBig;
       }
     } else {
       if (this.props.checkoutItems.length < 1) {
-        return (emptyCartComponentSmall)
+        return emptyCartComponentSmall;
       } else {
-        return (fullCartComponentSmall)
+        return fullCartComponentSmall;
       }
     }
   }

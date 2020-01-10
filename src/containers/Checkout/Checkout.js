@@ -32,7 +32,7 @@ class Checkout extends React.Component {
 
     const cartPayload = {
       orderString: this.props.name,
-      totalPrice: this.props.amount
+      data: this.props.data
     };
 
     const response = await axios.post("/charge", {
