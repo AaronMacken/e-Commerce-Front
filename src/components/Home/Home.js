@@ -41,7 +41,7 @@ export default class Landing extends Component {
 
           </div>
         </header>
-        <ClipTransition path="0 0, 100% 0%, 100% 49%, 0% 100%" color="#5c9c55" />
+        <ClipTransition path="0 0, 100% 0, 94% 0, 0 65%" color="#5c9c55" />
 
         <section className="product-list-section">
           <Title text={'New Arrivals'} />
