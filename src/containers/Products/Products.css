@@ -1,5 +1,6 @@
 .products-page {
   padding: 3rem;
+  min-height: 70vh;
 }
 
 .filterInput {

@@ -64,6 +64,7 @@ class Cart extends Component {
         img={item.img}
         index={index}
         id={item.id}
+        key={index}
         qty={item.qty}
       />
     ));
@@ -157,7 +158,7 @@ class Cart extends Component {
               <ul className="cart-items-list">
                 {this.props.checkoutItems.map((item, index) => {
                   return (
-                    <li key={index} className="cart-item-li">
+                    <li key={index} key={index} className="cart-item-li">
                       {item.title} x{item.qty}
                     </li>
                   );

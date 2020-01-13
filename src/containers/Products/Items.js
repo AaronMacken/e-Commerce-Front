@@ -14,7 +14,7 @@ const useStyles = makeStyles({
 const Items = ({ items, loading }) => {
     const classes = useStyles();
     let products = items.map((e) => (
-        <Grid item xs={12} md={6} lg={4} key={e._id}>
+        <Grid item xs={12} md={4} lg={4} key={e._id}>
             <ProductListItem img={e.productImage}
                 title={e.title} price={e.price} id={e._id} />
         </Grid>

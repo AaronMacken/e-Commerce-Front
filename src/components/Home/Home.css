@@ -79,10 +79,10 @@
 
 @media only screen and (max-width: 975px) {
   .landingPage {
-    background-color: #f5f5f5;
+    /* background-color: #f5f5f5; */
   }
   .product-list-section {
-    background-color: #f5f5f5;
+    /* background-color: #f5f5f5; */
     margin: 0;
   }
   .shop-all-btn-wrapper {

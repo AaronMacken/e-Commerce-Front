@@ -33,7 +33,9 @@ export default class Landing extends Component {
         <header className="header">
           <div className="landing-col">
             <h1 className="header-title">The Hippie House</h1>
-            <h2 className="header-sub">We are a CBD hemp dispensary located at <br />10418 North Main St. Suite-P Archdale, NC 27263</h2>
+            <h2 className="header-sub">We are a CBD hemp dispensary located in Archdale and Greensboro, NC.
+              <br></br>Shop online for in-store pickup.
+            </h2>
 
             <Link to="/Products" style={{ textDecoration: 'none' }}>
               <LandingButton text="See our products"></LandingButton>
@@ -41,7 +43,7 @@ export default class Landing extends Component {
 
           </div>
         </header>
-        <ClipTransition path="0 0, 100% 0, 94% 0, 0 65%" color="#5c9c55" />
+        <ClipTransition path="0 0, 100% 0%, 100% 30%, 0 82%" color="#5c9c55" />
 
         <section className="product-list-section">
           <Title text={'New Arrivals'} />
@@ -49,7 +51,7 @@ export default class Landing extends Component {
           <Items items={this.state.items} loading={this.state.isLoading} />
 
 
-          <div className="shop-all-btn-wrapper">
+          <div className="shop-all-btn-wrapper mb-5 mt-5">
             <Link to="/Products" style={{ textDecoration: 'none' }}>
               <LandingButton text="See our products"></LandingButton>
             </Link>
