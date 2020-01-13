@@ -44,7 +44,10 @@
 @media only screen and (max-width: 475px) {
     .cart-item {
         align-items: center;
-        width: 100vw;
+        width: 100%;
+    }
+    .cart-item-img {
+        margin-left: 1rem;
     }
     .cart-item-img {
         height: 9rem;
