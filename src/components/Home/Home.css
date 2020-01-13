@@ -18,7 +18,7 @@
 }
 
 .landing-col {
-  height: 80vh;
+  min-height: 80vh;
   display: flex;
   margin: 0 auto;
   flex-direction: column;
