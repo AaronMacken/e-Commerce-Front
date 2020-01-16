@@ -20,11 +20,7 @@ export default class Landing extends Component {
   componentDidMount() {
     const fetchPosts = async () => {
       this.setState({ isLoading: true })
-<<<<<<< HEAD
       const res = await axios.get('/api/products/recent');
-=======
-      const res = await axios.get('/products/recent');
->>>>>>> d9727f6be83b826e80a1fdd6defc7efd726fa700
       this.setState({ items: res.data })
       this.setState({ isLoading: false })
     }
