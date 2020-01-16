@@ -6,7 +6,10 @@
     margin: auto;
     border-bottom: 1px solid grey;
     transition: all .2s;
+<<<<<<< HEAD
 
+=======
+>>>>>>> d9727f6be83b826e80a1fdd6defc7efd726fa700
 }
 
 .cart-item:hover {
@@ -49,6 +52,11 @@
     }
     .cart-item-img {
         margin-left: 1rem;
+<<<<<<< HEAD
+=======
+    }
+    .cart-item-img {
+>>>>>>> d9727f6be83b826e80a1fdd6defc7efd726fa700
         height: 9rem;
     }
 }

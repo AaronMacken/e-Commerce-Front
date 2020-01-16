@@ -5,6 +5,10 @@
   font-size: 1.5rem;
 }
 
+<<<<<<< HEAD
 .page-item:hover {
+=======
+.page-link:hover {
+>>>>>>> d9727f6be83b826e80a1fdd6defc7efd726fa700
   cursor: pointer;
 }

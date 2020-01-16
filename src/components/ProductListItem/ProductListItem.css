@@ -58,7 +58,10 @@
 }
 
 @media only screen and (max-width: 375px) {
+<<<<<<< HEAD
 
+=======
+>>>>>>> d9727f6be83b826e80a1fdd6defc7efd726fa700
   .product-list-item-img {
     width: 25rem;
     height: auto;

@@ -18,7 +18,11 @@ const Products = () => {
   useEffect(() => {
     const fetchPosts = async () => {
       setLoading(true);
+<<<<<<< HEAD
       const res = await axios.get('/api/products');
+=======
+      const res = await axios.get('/products');
+>>>>>>> d9727f6be83b826e80a1fdd6defc7efd726fa700
       setItems(res.data);
       setLoading(false);
     }
