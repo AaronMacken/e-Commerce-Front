@@ -40,4 +40,8 @@
   padding-left: 1px;
 }
 
-
+@media only screen and (max-width: 450px) {
+  .qty-input {
+    width: 50%;
+  }
+}
