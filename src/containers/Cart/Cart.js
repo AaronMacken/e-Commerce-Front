@@ -4,6 +4,7 @@ import CartItem from "../CartItem/CartItem";
 import Checkout from "../Checkout/Checkout";
 import Title from "../../components/Title/Title";
 import LandingButton from "../../components/LandingButton/LandingButton";
+import ShippingFee from './ShippingFee';
 import "./Cart.css";
 import { Link } from "react-router-dom";
 import "react-toastify/dist/ReactToastify.css";
@@ -16,7 +17,7 @@ class Cart extends Component {
       isDesktop: false
     };
 
-    this.updatePredicate = this.updatePredicate.bind(this);
+    this.updatePredicate = this.updatePredicate.bind(this); 
   }
 
   componentDidMount() {
@@ -32,6 +33,7 @@ class Cart extends Component {
     this.setState({ isDesktop: window.innerWidth > 975 });
   }
 
+
   getOrderString(reduxState) {
     let orderItems = reduxState.map((item, index) => {
       return `${item.title} x${item.qty}`;
@@ -44,7 +46,11 @@ class Cart extends Component {
     reduxState.forEach(item => {
       subTotal += item.qty * item.price;
     });
-    return subTotal;
+    if(subTotal >= 60) {
+      return subTotal
+    } else {
+      return subTotal + 12.50;
+    }
   }
 
   getOrderData(reduxState) {
@@ -68,6 +74,8 @@ class Cart extends Component {
         qty={item.qty}
       />
     ));
+
+    let shippingFeeComponent = (this.getOrderPrice(this.props.checkoutItems).toFixed(2) >= 60 ? ( <ShippingFee wavedShipping />) : ( <ShippingFee /> ))
 
     let emptyCartComponentBig = (
       <div className="cart-page">
@@ -118,6 +126,7 @@ class Cart extends Component {
                     </li>
                   );
                 })}
+                {shippingFeeComponent}
               </ul>
             </div>
 
@@ -163,6 +172,7 @@ class Cart extends Component {
                     </li>
                   );
                 })}
+                {shippingFeeComponent}
               </ul>
             </div>
           </div>

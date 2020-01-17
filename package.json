@@ -43,5 +43,5 @@
   "devDependencies": {
     "dotenv": "^8.2.0"
   },
-  "proxy": "http://localhost:3001"
+  "proxy": "https://hippie-server-am.herokuapp.com/"
 }

@@ -22,6 +22,11 @@
   padding: 0 3rem;
 }
 
+.free-shipping {
+  text-decoration: line-through;
+  color: rgba(205, 205, 205, 0.97);
+}
+
 .even {
   justify-content: space-between;
   align-items: flex-start;
