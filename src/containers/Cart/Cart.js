@@ -46,10 +46,14 @@ class Cart extends Component {
     reduxState.forEach(item => {
       subTotal += item.qty * item.price;
     });
+    return subTotal;
+  }
+
+  getTotal(subTotal) {
     if(subTotal >= 60) {
       return subTotal
     } else {
-      return subTotal + 12.50;
+      return (this.getOrderPrice(this.props.checkoutItems) + 12.50).toFixed(2)
     }
   }
 
@@ -134,12 +138,12 @@ class Cart extends Component {
             <div className="col-left-bottom">
               <h2 className="sub-total">
                 {/* Display total, round deciaml */}
-                SubTotal: $
-                {this.getOrderPrice(this.props.checkoutItems).toFixed(2)}
+                Total: $
+                {this.getTotal(this.getOrderPrice(this.props.checkoutItems).toFixed(2))}
               </h2>
               <Checkout
                 stripeKey="pk_test_VkrWbkMQcpSVIJNdi7WNytR100X1frIfAN"
-                amount={this.getOrderPrice(this.props.checkoutItems)}
+                amount={this.getTotal(this.getOrderPrice(this.props.checkoutItems))}
                 data={this.getOrderData(this.props.checkoutItems)}
                 name={this.getOrderString(this.props.checkoutItems)}
               />
@@ -180,12 +184,12 @@ class Cart extends Component {
           <div className="col-left-bottom">
             <h2 className="sub-total">
               {/* Display total, round deciaml */}
-              SubTotal: $
-              {this.getOrderPrice(this.props.checkoutItems).toFixed(2)}
+              Total: $
+              {this.getTotal(this.getOrderPrice(this.props.checkoutItems).toFixed(2))}
             </h2>
             <Checkout
               stripeKey="pk_test_VkrWbkMQcpSVIJNdi7WNytR100X1frIfAN"
-              amount={this.getOrderPrice(this.props.checkoutItems)}
+              amount={this.getTotal(this.getOrderPrice(this.props.checkoutItems))}
               data={this.getOrderData(this.props.checkoutItems)}
               name={this.getOrderString(this.props.checkoutItems)}
             />
