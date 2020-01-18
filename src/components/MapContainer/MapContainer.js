@@ -16,14 +16,15 @@ class MapContainer extends Component {
           google={this.props.google}
           zoom={8}
           style={mapStyles}
-          initialCenter={{ lat: 35.908220, lng: -79.962170 }}
+          initialCenter={{ lat: this.props.lat, lng: this.props.long }}
         >
-          <Marker position={{ lat: 35.908220, lng: -79.962170 }} />
+          <Marker position={{ lat: this.props.lat, lng: this.props.long }} />
         </Map>
       </div>
     );
   }
 }
+
 
 export default GoogleApiWrapper({
   apiKey: "AIzaSyCYX09XEFWpQ27JpFKW3S-ocQFpkcRmji0" // api key here

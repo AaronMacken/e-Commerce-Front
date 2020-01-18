@@ -11,25 +11,24 @@ export default class Contact extends Component {
 
         <div className="contact-row">
           <div className="contact-col left">
-            <h2 className="contact-title">Archdale, NC</h2>
+            <h2 className="contact-title">Winston-Salem, NC</h2>
 
             <p>
-              <span className="bold-label">Phone:</span> (336) 875-4042
+              <span className="bold-label">Phone:</span> (336) 661-8043
             </p>
             <p>
-              <span className="bold-label">Email:</span> HippieHouse@Email.com
+              <span className="bold-label">Email:</span> thehippiehouse336@gmail.com
             </p>
 
             <p>
               <span className="bold-label">Hours:</span> Mon-Sat 8AM-10PM
             </p>
             <p>
-              <span className="bold-label">Location:</span> 10418 North Main St.
-              Suite-P Archdale, NC 27263
+              <span className="bold-label">Location:</span> 13 Clemmonsville Rd, Winston-Salem, NC 27127
             </p>
           </div>
           <div className="contact-col right">
-            <MapContainer />
+            <MapContainer lat={36.048270} long={-80.238270} />
           </div>
         </div>
 
@@ -43,7 +42,7 @@ export default class Contact extends Component {
               <span className="bold-label">Phone:</span> (336) 875-4042
             </p>
             <p>
-              <span className="bold-label">Email:</span> HippieHouse@Email.com
+              <span className="bold-label">Email:</span> thehippiehouse336@gmail.com
             </p>
 
             <p>
@@ -55,7 +54,7 @@ export default class Contact extends Component {
             </p>
           </div>
           <div className="contact-col right">
-            <MapContainer />
+            <MapContainer lat={35.908220} long={-79.962170}/>
           </div>
         </div>
 
