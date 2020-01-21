@@ -29,7 +29,7 @@ class CartItem extends Component {
     const { title, price, img, index, qty } = this.props;
     return (
       <div className="cart-item" key={index}>
-        <img className="cart-item-img" src={`https://hippie-server-am.herokuapp.com/${img}`} alt={title}></img>
+        <img className="cart-item-img" src={`${img}`} alt={title}></img>
         <div className="cart-item-col">
           <h2>{title}</h2>
           <h3>${(price * qty).toFixed(2)}</h3>

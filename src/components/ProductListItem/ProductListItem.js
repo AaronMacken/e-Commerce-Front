@@ -44,7 +44,7 @@ class ProductListItem extends Component {
     return (
       <li className="product-list-item" id={id}>
         <img
-          src={`https://hippie-server-am.herokuapp.com/${img}`}
+          src={`${img}`}
           alt={title}
           className="product-list-item-img"
         ></img>
