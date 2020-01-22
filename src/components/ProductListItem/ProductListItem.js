@@ -3,6 +3,9 @@ import "./ProductListItem.css";
 import "../QtySelector/QtySelector";
 import { addItem } from "../../store/actions/itemActions";
 import { connect } from "react-redux";
+import { toast } from "react-toastify";
+
+
 
 class ProductListItem extends Component {
   constructor(props) {
@@ -15,6 +18,8 @@ class ProductListItem extends Component {
     this.handleInputIncrement = this.handleInputIncrement.bind(this);
     this.handleInputDecrement = this.handleInputDecrement.bind(this);
   }
+
+
 
   handleInputIncrement(event) {
     this.setState({ numberOfItems: this.state.numberOfItems + 1 });
@@ -37,6 +42,9 @@ class ProductListItem extends Component {
       qty: this.state.numberOfItems
     };
     this.props.addItem(payload);
+    toast(`Item added to cart. Proceed to the cart page to process payment.`, {
+      className: "successToast"
+    });
   }
 
   render() {
