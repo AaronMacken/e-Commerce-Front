@@ -11,7 +11,7 @@
   color: #fff;
   /* "https://thumbs.dreamstime.com/z/image-medicinal-cannabis-extract-oil-formula-cbd-cannabinol-cannabidiol-growing-marijuana-hemp-antioxidant-products-138777654.jpg */
   background-image: linear-gradient(to bottom, #000000ab, #000000b4),
-    url("/background.jpg");
+    url("/backgroundp.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
