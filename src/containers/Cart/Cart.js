@@ -53,7 +53,7 @@ class Cart extends Component {
     if(subTotal >= 60) {
       return subTotal
     } else {
-      return (this.getOrderPrice(this.props.checkoutItems) + 12.50).toFixed(2)
+      return (this.getOrderPrice(this.props.checkoutItems) + 5.50).toFixed(2)
     }
   }
 
