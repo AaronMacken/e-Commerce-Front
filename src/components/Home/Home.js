@@ -36,7 +36,7 @@ export default class Landing extends Component {
             <h2 className="header-sub">We are a family owned CBD dispensary in NC <br />
               We carry a wide variety of CBD products, including: flower, tinctures, salves and edibles <br />
               Free shipping on orders $60 and above<br />
-              Products are for adults 18+<br />
+              Products are for adults 21+<br />
             </h2>
 
             <Link to="/Products" style={{ textDecoration: 'none' }}>
