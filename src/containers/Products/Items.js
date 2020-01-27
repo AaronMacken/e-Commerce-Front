@@ -7,9 +7,6 @@ import CircularProgress from '@material-ui/core/CircularProgress';
 const useStyles = makeStyles({
     spinner: {
         color: 'green'
-    },
-    containerGrid: {
-        width: '100vw'
     }
 })
 
@@ -29,7 +26,7 @@ const Items = ({ items, loading }) => {
 
     }
     return (
-        <Grid container spacing={3} className={classes.containerGrid}>
+        <Grid container spacing={3}>
             {products}
         </Grid>
         
