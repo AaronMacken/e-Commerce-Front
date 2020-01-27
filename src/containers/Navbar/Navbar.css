@@ -5,7 +5,7 @@
 
 /* ---------- Navbar Styling ----------- */
 .navbar {
-  background-color: #80BE79 !important;
+  background-color: #5c9c55 !important;
   padding: 1rem;
   font-size: 1.5rem;
   font-size: 300%;
@@ -89,7 +89,7 @@ ul.navbar-nav {
 
 @media only screen and (max-width: 991px) {
   ul.navbar-nav {
-    background-color: #80BE79 !important;
+    background-color: #5c9c55 !important;
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
     -ms-flex-direction: column;

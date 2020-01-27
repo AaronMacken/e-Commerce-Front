@@ -29,6 +29,7 @@ const Items = ({ items, loading }) => {
         <Grid container spacing={3}>
             {products}
         </Grid>
+        
     )
 }
 

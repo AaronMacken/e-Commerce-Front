@@ -6,6 +6,8 @@ import Title from '../Title/Title';
 import { Link } from "react-router-dom";
 import Items from '../../containers/Products/Items';
 import axios from 'axios';
+import Grid from '@material-ui/core/Grid';
+import FunFact from '../FunFact/FunFact';
 
 export default class Landing extends Component {
   constructor(props) {
@@ -33,13 +35,13 @@ export default class Landing extends Component {
         <header className="header">
           <div className="landing-col">
             <h1 className="header-title">The Hippie House</h1>
-            <h2 className="header-sub">We are a family owned CBD dispensary in NC <br />
+            {/* <h2 className="header-sub">We are a family owned CBD dispensary in NC <br />
               We carry a wide variety of CBD products, including: flower, tinctures, salves and edibles <br />
               Free shipping on orders $60 and above<br />
               Products are for adults 21+<br />
-            </h2>
+            </h2> */}
 
-            <Link to="/Products" style={{ textDecoration: 'none' }}>
+            <Link to="/Products" style={{ textDecoration: 'none', marginBottom: "2rem" }}>
               <LandingButton text="See our products"></LandingButton>
             </Link>
 
@@ -49,16 +51,18 @@ export default class Landing extends Component {
 
         <section className="product-list-section">
           <Title text={'New Arrivals'} />
-
           <Items items={this.state.items} loading={this.state.isLoading} />
-
-
           <div className="shop-all-btn-wrapper mb-5 mt-5">
             <Link to="/Products" style={{ textDecoration: 'none' }}>
               <LandingButton text="See our products"></LandingButton>
             </Link>
           </div>
-
+        </section>
+        <section className="fun-facts-section">
+        <Grid>
+            
+        </Grid>
+          <FunFact heading="Products" text="We carry a wide variety of CBD products, including: flower, tinctures, salves and edibles" />
         </section>
       </div>
     );
