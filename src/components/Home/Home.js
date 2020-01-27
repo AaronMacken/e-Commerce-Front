@@ -42,6 +42,7 @@ export default class Landing extends Component {
 
           </div>
         </header>
+       
 
         <section className="fun-facts-section">
           <Grid container spacing={3}>
@@ -51,9 +52,7 @@ export default class Landing extends Component {
             <FunFact heading="Age Limit" text="All products are intended for adults over the age of 21 and up." icon="fas fa-user-plus"/>
           </Grid>
         </section>
-
-        <ClipTransition path="0 0, 100% 0%, 100% 30%, 0 82%" color="#5c9c55" />
-
+        <ClipTransition path="0 0, 100% 0%, 100% 30%, 0 82%" color="#5c9c55"/>
         <section className="product-list-section">
           <Title text={'New Arrivals'} />
           <Items items={this.state.items} loading={this.state.isLoading} />

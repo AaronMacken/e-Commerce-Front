@@ -6,7 +6,7 @@ font-size: 3.5rem;
 margin: auto;
 margin-bottom: 4rem;
 text-align: center;
-font-weight: 300;
+font-weight: 200;
 font-family: sans-serif;
 &:after {
     display: block;
