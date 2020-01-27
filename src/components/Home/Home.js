@@ -35,10 +35,6 @@ export default class Landing extends Component {
         <header className="header">
           <div className="landing-col">
             <h1 className="header-title">The Hippie House</h1>
-            {/*
-              Free shipping on orders $60 and above<br />
-              Products are for adults 21+<br />
-            </h2> */}
 
             <Link to="/Products" style={{ textDecoration: 'none', marginBottom: "2rem" }}>
               <LandingButton text="See our products"></LandingButton>
