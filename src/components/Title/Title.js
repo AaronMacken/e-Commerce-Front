@@ -2,11 +2,11 @@ import React, { Component } from "react";
 import styled from "styled-components";
 
 const Container = styled.p`
-font-size: 3.5rem;
+font-size: 3rem;
 margin: auto;
 margin-bottom: 4rem;
 text-align: center;
-font-weight: 200;
+font-weight: 100;
 font-family: sans-serif;
 &:after {
     display: block;
