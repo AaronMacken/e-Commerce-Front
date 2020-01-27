@@ -16,14 +16,14 @@
 .product-list-item-title {
   margin: 1rem;
   max-width: 30rem;
-  height: 3.5rem;
+  font-size: 1.75rem;
+  font-weight: bold;
 }
 
 .product-list-item-price {
   max-width: 30rem;
   text-align: center;
-  font-size: 3rem;
-  font-weight: bold;
+  font-size: 2rem;
 }
 
 .product-list-item-add {

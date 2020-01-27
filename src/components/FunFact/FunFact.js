@@ -1,20 +1,22 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import Grid from '@material-ui/core/Grid';
+import './FunFact.css';
 
 export default class FunFact extends Component {
     render() {
-        const {heading, text, icon} = this.props;
+        const { heading, text, icon } = this.props;
         const styles = {
             display: "flex",
             flexDirection: "column",
             alignItems: "center"
         }
         return (
-            <div style={styles}>
-                <i className={icon}/>
-                <h6>{heading}</h6>
-                <p>{text}</p>
-                
-            </div>
+            <Grid item xs={12} sm={6} lg={3} style={styles}>
+                <i className={`${icon} fact-icon`} />
+                <h6 className="fact-heading">{heading}</h6>
+                <p className="fact-text">{text}</p>
+            </Grid>
+
         )
     }
 }

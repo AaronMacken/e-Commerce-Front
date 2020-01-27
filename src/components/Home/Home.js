@@ -35,8 +35,7 @@ export default class Landing extends Component {
         <header className="header">
           <div className="landing-col">
             <h1 className="header-title">The Hippie House</h1>
-            {/* <h2 className="header-sub">We are a family owned CBD dispensary in NC <br />
-              We carry a wide variety of CBD products, including: flower, tinctures, salves and edibles <br />
+            {/*
               Free shipping on orders $60 and above<br />
               Products are for adults 21+<br />
             </h2> */}
@@ -47,6 +46,16 @@ export default class Landing extends Component {
 
           </div>
         </header>
+
+        <section className="fun-facts-section">
+          <Grid container spacing={3}>
+          <FunFact heading="Who We Are" text="We are a family owned CBD dispensary located in Winston-Salem North Carolina, USA." icon="fas fa-globe-americas"/>
+            <FunFact heading="Products" text="We carry a wide variety of CBD products, including: flowers, tinctures, salves and edibles." icon="fas fa-cannabis"/>
+            <FunFact heading="Free Shipping" text="We are happy to offer FREE SHIPPING on orders of $60 or more!" icon="fas fa-shipping-fast"/>
+            <FunFact heading="Age Limit" text="All products are intended for adults over the age of 21 and up." icon="fas fa-user-plus"/>
+          </Grid>
+        </section>
+
         <ClipTransition path="0 0, 100% 0%, 100% 30%, 0 82%" color="#5c9c55" />
 
         <section className="product-list-section">
@@ -58,12 +67,7 @@ export default class Landing extends Component {
             </Link>
           </div>
         </section>
-        <section className="fun-facts-section">
-        <Grid>
-            
-        </Grid>
-          <FunFact heading="Products" text="We carry a wide variety of CBD products, including: flower, tinctures, salves and edibles" />
-        </section>
+        
       </div>
     );
   }
