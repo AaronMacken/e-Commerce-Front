@@ -8,6 +8,7 @@ import Items from '../../containers/Products/Items';
 import axios from 'axios';
 import Grid from '@material-ui/core/Grid';
 import FunFact from '../FunFact/FunFact';
+import '../../containers/ProductShow/ProductShowMobile.css';
 
 export default class Landing extends Component {
   constructor(props) {
@@ -36,8 +37,9 @@ export default class Landing extends Component {
           <div className="landing-col">
             <h1 className="header-title">The Hippie House</h1>
 
-            <Link to="/Products" style={{ textDecoration: 'none', marginBottom: "2rem" }}>
+            <Link to="/Products" style={{ textDecoration: 'none', marginBottom: "2rem", width: "25vw" }}>
               <LandingButton text="See our products"></LandingButton>
+              
             </Link>
 
           </div>
@@ -58,7 +60,7 @@ export default class Landing extends Component {
           <Items items={this.state.items} loading={this.state.isLoading} />
           <div className="shop-all-btn-wrapper mb-5 mt-5">
             <Link to="/Products" style={{ textDecoration: 'none' }}>
-              <LandingButton text="See our products"></LandingButton>
+              <button className="green-btn green-btn-inverse-mb" style={{width: "70vw"}}>See our products</button>
             </Link>
           </div>
         </section>

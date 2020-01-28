@@ -1,7 +1,5 @@
 .qty-selector-wrapper {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+
 }
 
 .qty-input {
@@ -34,11 +32,12 @@
 }
 
 .decrement {
-  padding-bottom: 5px;
+  /* padding-bottom: 5px; */
 }
 
 .increment {
   padding-left: 1px;
+  padding-bottom: 1px;
 }
 
 @media only screen and (max-width: 450px) {
