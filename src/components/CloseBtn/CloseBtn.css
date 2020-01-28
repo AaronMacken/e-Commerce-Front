@@ -14,5 +14,6 @@
 @media only screen and (max-width: 475px) {
   .fa-times {
     align-self: end;
+    margin-right: 1.5rem;
   }
 }

@@ -78,6 +78,25 @@
   background: red !important;
 }
 
+.modal {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.paper {
+  background-color: #fff;
+  padding: 2rem;
+}
+
+.paper:focus {
+  outline: 0;
+}
+
+.transition-modal-description {
+  font-size: 1.25rem;
+}
+
 @media only screen and (max-width: 975px) {
   .cart-col-wrapper {
     flex-direction: column;

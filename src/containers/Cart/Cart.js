@@ -1,23 +1,35 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import CartItem from "../CartItem/CartItem";
-import Checkout from "../Checkout/Checkout";
-import Title from "../../components/Title/Title";
-import LandingButton from "../../components/LandingButton/LandingButton";
 import ShippingFee from './ShippingFee';
 import "./Cart.css";
-import { Link } from "react-router-dom";
 import "react-toastify/dist/ReactToastify.css";
+import EmptyCartDesktop from './EmptyCartDesktop';
+import EmptyCartMobile from './EmptyCartMobile';
+import FullCartMobile from './FullCartMobile';
+import FullCartDesktop from './FullCartDesktop';
+
 
 class Cart extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      isDesktop: false
+      isDesktop: false,
+      isOpenModal: false
     };
 
-    this.updatePredicate = this.updatePredicate.bind(this); 
+    this.openModal = this.openModal.bind(this);
+    this.closeModal = this.closeModal.bind(this);
+    this.updatePredicate = this.updatePredicate.bind(this);
+  }
+
+  openModal() {
+    this.setState({ isOpenModal: true })
+  }
+
+  closeModal() {
+    this.setState({ isOpenModal: false })
   }
 
   componentDidMount() {
@@ -50,7 +62,7 @@ class Cart extends Component {
   }
 
   getTotal(subTotal) {
-    if(subTotal >= 60) {
+    if (subTotal >= 60) {
       return subTotal
     } else {
       return (this.getOrderPrice(this.props.checkoutItems) + 5.50).toFixed(2)
@@ -59,7 +71,7 @@ class Cart extends Component {
 
   getOrderData(reduxState) {
     let dataArray = reduxState.map(e => {
-      return {id: e.id, qty: e.qty}
+      return { id: e.id, qty: e.qty }
     })
     return dataArray;
   }
@@ -67,7 +79,7 @@ class Cart extends Component {
   render() {
     const isDesktop = this.state.isDesktop;
     // CART ITEMS FROM REDUX STATE
-    let cartItems = this.props.checkoutItems.map((item, index) => (
+    const cartItems = this.props.checkoutItems.map((item, index) => (
       <CartItem
         title={item.title}
         price={item.price}
@@ -79,136 +91,47 @@ class Cart extends Component {
       />
     ));
 
-    let shippingFeeComponent = (this.getOrderPrice(this.props.checkoutItems).toFixed(2) >= 60 ? ( <ShippingFee wavedShipping />) : ( <ShippingFee /> ))
+    const checkoutItems = this.props.checkoutItems.map((item, index) => {
+      return (
+        <li key={index} className="cart-item-li">
+          {item.title} x{item.qty}
+        </li>
+      );
+    })
 
-    let emptyCartComponentBig = (
-      <div className="cart-page">
-        <Title text={"Shopping Cart"} />
-        <div className="cart-col-wrapper">
-          <div className="cart-col">
-            <h2>Cart is empty</h2>
-          </div>
-          <div className="cart-col">
-            <Link to="/Products" style={{ textDecoration: "none" }}>
-              <LandingButton text="See our products"></LandingButton>
-            </Link>
-          </div>
-        </div>
-      </div>
-    );
-
-    let emptyCartComponentSmall = (
-      <div className="cart-page">
-        <Title text={"Shopping Cart"} />
-        <div className="cart-col-wrapper">
-          <div className="cart-col-small">
-            <h2>Cart is empty</h2>
-          </div>
-          <div className="cart-col-small">
-            <Link to="/Products" style={{ textDecoration: "none" }}>
-              <LandingButton text="See our products"></LandingButton>
-            </Link>
-          </div>
-        </div>
-      </div>
-    );
-
-    let fullCartComponentBig = (
-      <div className="cart-page">
-        <Title text={"Shopping Cart"} />
-        <div className="cart-col-wrapper">
-          <div className="cart-col even">
-            {/* LEFT TOP */}
-            <div className="col-left-top">
-              {/* display data */}
-              <h2 className="sub-total">Order</h2>
-              <ul className="cart-items-list">
-                {this.props.checkoutItems.map((item, index) => {
-                  return (
-                    <li key={index} className="cart-item-li">
-                      {item.title} x{item.qty}
-                    </li>
-                  );
-                })}
-                {shippingFeeComponent}
-              </ul>
-            </div>
-
-            {/* LEFT BOTTOM */}
-            <div className="col-left-bottom">
-              <h2 className="sub-total">
-                {/* Display total, round deciaml */}
-                Total: $
-                {this.getTotal(this.getOrderPrice(this.props.checkoutItems).toFixed(2))}
-              </h2>
-              <Checkout
-                stripeKey="pk_test_VkrWbkMQcpSVIJNdi7WNytR100X1frIfAN"
-                amount={this.getTotal(this.getOrderPrice(this.props.checkoutItems))}
-                data={this.getOrderData(this.props.checkoutItems)}
-                name={this.getOrderString(this.props.checkoutItems)}
-              />
-              
-            </div>
-          </div>
-
-          {/* RIGHT SIDE COLUMN */}
-          <div className="cart-col-right">{cartItems}</div>
-        </div>
-      </div>
-    );
-
-    let fullCartComponentSmall = (
-      <div className="cart-page">
-        <Title text={"Shopping Cart"} />
-        <div className="cart-col-wrapper">
-          {/* RIGHT SIDE COLUMN */}
-          <div className="cart-col-right">{cartItems}</div>
-          <div className="cart-col even">
-            {/* LEFT TOP */}
-            <div className="col-left-top">
-              {/* display data */}
-              <h2 className="sub-total">Order</h2>
-              <ul className="cart-items-list">
-                {this.props.checkoutItems.map((item, index) => {
-                  return (
-                    <li key={index} key={index} className="cart-item-li">
-                      {item.title} x{item.qty}
-                    </li>
-                  );
-                })}
-                {shippingFeeComponent}
-              </ul>
-            </div>
-          </div>
-          {/* LEFT BOTTOM */}
-          <div className="col-left-bottom">
-            <h2 className="sub-total">
-              {/* Display total, round deciaml */}
-              Total: $
-              {this.getTotal(this.getOrderPrice(this.props.checkoutItems).toFixed(2))}
-            </h2>
-            <Checkout
-              stripeKey="pk_test_VkrWbkMQcpSVIJNdi7WNytR100X1frIfAN"
-              amount={this.getTotal(this.getOrderPrice(this.props.checkoutItems))}
-              data={this.getOrderData(this.props.checkoutItems)}
-              name={this.getOrderString(this.props.checkoutItems)}
-            />
-          </div>
-        </div>
-      </div>
-    );
+    let shippingFeeComponent = (this.getOrderPrice(this.props.checkoutItems).toFixed(2) >= 60 ? (<ShippingFee wavedShipping />) : (<ShippingFee />))
 
     if (isDesktop) {
       if (this.props.checkoutItems.length < 1) {
-        return emptyCartComponentBig;
+        return <EmptyCartDesktop />
       } else {
-        return fullCartComponentBig;
+        return <FullCartDesktop
+          cartItems={cartItems}
+          checkoutItems={checkoutItems}
+          shippingFeeComponent={shippingFeeComponent}
+          total={this.getTotal(this.getOrderPrice(this.props.checkoutItems).toFixed(2))}
+          amount={this.getTotal(this.getOrderPrice(this.props.checkoutItems))}
+          data={this.getOrderData(this.props.checkoutItems)}
+          name={this.getOrderString(this.props.checkoutItems)}
+
+          openModal={this.openModal} closeModal={this.closeModal} isOpenModal={this.state.isOpenModal}
+        />
       }
     } else {
       if (this.props.checkoutItems.length < 1) {
-        return emptyCartComponentSmall;
+        return <EmptyCartMobile />
       } else {
-        return fullCartComponentSmall;
+        return <FullCartMobile
+          cartItems={cartItems}
+          checkoutItems={checkoutItems}
+          shippingFeeComponent={shippingFeeComponent}
+          total={this.getTotal(this.getOrderPrice(this.props.checkoutItems).toFixed(2))}
+          amount={this.getTotal(this.getOrderPrice(this.props.checkoutItems))}
+          data={this.getOrderData(this.props.checkoutItems)}
+          name={this.getOrderString(this.props.checkoutItems)}
+
+          openModal={this.openModal} closeModal={this.closeModal} isOpenModal={this.state.isOpenModal}
+        />
       }
     }
   }
