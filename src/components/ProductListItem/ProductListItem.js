@@ -4,6 +4,7 @@ import "../QtySelector/QtySelector";
 import { addItem } from "../../store/actions/itemActions";
 import { connect } from "react-redux";
 import { toast } from "react-toastify";
+import { Link } from 'react-router-dom';
 
 
 
@@ -51,13 +52,18 @@ class ProductListItem extends Component {
     const { img, title, price, id } = this.props;
     return (
       <li className="product-list-item" id={id}>
-        <img
-          src={`${img}`}
-          alt={title}
-          className="product-list-item-img"
-        ></img>
-        <h2 className="product-list-item-title">{`${title}`}</h2>
+
+        <Link to={`/Products/${id}`} className="product-link" >
+          <img
+            src={`${img}`}
+            alt={title}
+            className="product-list-item-img"
+          ></img>
+          <h2 className="product-list-item-title">{`${title}`}</h2>
+        </Link>
         <span className="product-list-item-price">{`$${price.toFixed(2)}`}</span>
+
+
 
         {/* <QtySelector /> */}
         <div className="qty-selector-wrapper">

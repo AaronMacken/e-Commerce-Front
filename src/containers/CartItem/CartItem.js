@@ -3,6 +3,7 @@ import "./CartItem.css";
 import CloseBtn from "../../components/CloseBtn/CloseBtn";
 import { connect } from "react-redux";
 import { removeItem, increaseQty, decreaseQty } from "../../store/actions/itemActions";
+import { Link } from 'react-router-dom';
 
 class CartItem extends Component {
   constructor(props) {
@@ -29,9 +30,15 @@ class CartItem extends Component {
     const { title, price, img, index, qty } = this.props;
     return (
       <div className="cart-item" key={index}>
-        <img className="cart-item-img" src={`${img}`} alt={title}></img>
+        <Link to={`/Products/${index}`} className="product-link" >
+          <img className="cart-item-img" src={`${img}`} alt={title}></img>
+        </Link>
+
         <div className="cart-item-col">
-          <h2>{title}</h2>
+          <Link to={`/Products/${index}`} className="product-link" >
+            <h2>{title}</h2>
+          </Link>
+
           <h3>${(price * qty).toFixed(2)}</h3>
 
           {/* <QtySelector /> */}

@@ -45,6 +45,14 @@
   outline: none;
 }
 
+.product-link {
+  color: black;
+}
+
+.product-link:hover {
+  text-decoration: none;
+}
+
 @media only screen and (max-width: 975px) {
   .product-list {
     flex-direction: column;
