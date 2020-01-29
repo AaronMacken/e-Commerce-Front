@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import ProductShowDesktop from './ProductShowDesktop';
 import ProductShowMobile from './ProductShowMobile';
+import axios from 'axios';
+import SpinnerMUI from '../../components/SpinnerMUI/SpinnerMui';
 
 
 
@@ -21,14 +23,25 @@ export default class ProductShow extends Component {
     componentDidMount() {
         this.updatePredicate();
         window.addEventListener("resize", this.updatePredicate);
-        // console.log(this.props.match.params.product_id);
-        // const fetchProduct = async () => {
-        //     this.setState({ isLoading: true })
-        //     const res = await axios.get('/api/products/');
-        //     this.setState({ items: res.data })
-        //     this.setState({ isLoading: false })
-        //   }
-        //   fetchPosts();
+        const fetchProduct = async () => {
+            this.setState({ isLoading: true })
+            await axios.get(`/api/products/${this.props.match.params.product_id}`)
+                .then(res => {
+                    this.setState({
+                        productName: res.data.title,
+                        price: res.data.price,
+                        img: res.data.productImage
+                    })
+                    this.setState({ isLoading: false })
+                })
+                .catch(e => {
+                    if(e) {
+                        this.props.history.push('/Products');
+                    }
+                })
+
+        }
+        fetchProduct();
     }
 
     componentWillUnmount() {
@@ -38,11 +51,32 @@ export default class ProductShow extends Component {
     updatePredicate() {
         this.setState({ isDesktop: window.innerWidth > 959 });
     }
+
+
     render() {
-        return (
-            <div className="product-show-page">
-                {this.state.isDesktop ? <ProductShowDesktop /> : <ProductShowMobile />}
+        if (this.state.isLoading) {
+            return <div style={{ minHeight: "50rem", display: "flex", justifyContent: "center", alignItems: "center" }}>
+                <SpinnerMUI />
             </div>
-        )
+        } else {
+            return (
+                <div className="product-show-page">
+                    {this.state.isDesktop
+                        ?
+                        <ProductShowDesktop
+                            img={this.state.img}
+                            title={this.state.productName}
+                            price={this.state.price}
+                        />
+                        :
+                        <ProductShowMobile
+                            img={this.state.img}
+                            title={this.state.productName}
+                            price={this.state.price}
+                        />}
+                </div>
+            )
+        }
+
     }
 }

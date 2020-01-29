@@ -15,7 +15,7 @@ export default class ProductShowMobile extends Component {
                 </Grid>
 
                 <Grid item xs={12}>
-                    <div className="data-col data-col-mb">
+                    <div className="data-col-mb">
                         <div className="data-div-1">
                             <h1>Lorem ipsum dolor sit amet, consectetur</h1>
                             <p>$49.99</p>
@@ -25,7 +25,7 @@ export default class ProductShowMobile extends Component {
                                 <QtySelector />
                             </div>
 
-                            <div className="button-col-ps-st button-col-ps-st-mb">
+                            <div className="button-col-ps-st button-col-ps-st-mb" className="ps-add">
                                 <button className="green-btn" style={{ margin: '0', marginBottom: "2rem", width: "70vw" }} onClick={this.addToCart}>
                                     Add to cart
                                 </button>

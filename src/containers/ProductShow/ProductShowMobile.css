@@ -13,7 +13,7 @@
 }
 
 .image-col-mb {
-    min-height: initial;
+    min-height: unset !important;
 }
 
 
@@ -26,5 +26,8 @@
 
 .green-btn-inverse-mb:hover {
     color: white;
+}
 
+.ps-add:focus {
+    outline: none;
 }

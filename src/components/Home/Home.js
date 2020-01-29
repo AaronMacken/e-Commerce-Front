@@ -37,7 +37,7 @@ export default class Landing extends Component {
           <div className="landing-col">
             <h1 className="header-title">The Hippie House</h1>
 
-            <Link to="/Products" style={{ textDecoration: 'none', marginBottom: "2rem", width: "25vw" }}>
+            <Link to="/Products" style={{ textDecoration: 'none', marginBottom: "2rem", width: "25vw", minWidth: "20rem" }}>
               <LandingButton text="See our products"></LandingButton>
               
             </Link>
