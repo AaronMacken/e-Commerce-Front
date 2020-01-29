@@ -37,7 +37,7 @@ export default class ProductShow extends Component {
                     this.setState({ isLoading: false })
                 })
                 .catch(e => {
-                    if(e) {
+                    if (e) {
                         this.props.history.push('/Products');
                     }
                 })
@@ -56,6 +56,7 @@ export default class ProductShow extends Component {
 
 
     render() {
+        let price = this.state.price;
         if (this.state.isLoading) {
             return <div style={{ minHeight: "50rem", display: "flex", justifyContent: "center", alignItems: "center" }}>
                 <SpinnerMUI />
@@ -68,14 +69,14 @@ export default class ProductShow extends Component {
                         <ProductShowDesktop
                             img={this.state.img}
                             title={this.state.productName}
-                            price={this.state.price}
+                            price={Number(price).toFixed(2)}
                             description={this.state.description}
                         />
                         :
                         <ProductShowMobile
                             img={this.state.img}
                             title={this.state.productName}
-                            price={this.state.price}
+                            price={Number(price).toFixed(2)}
                             description={this.state.description}
                         />}
                 </div>

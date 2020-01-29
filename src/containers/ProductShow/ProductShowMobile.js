@@ -11,16 +11,16 @@ export default class ProductShowMobile extends Component {
             <Grid container spacing={3}>
 
                 <Grid item className="image-col image-col-mb">
-                    <img className="image-ps-mobile" src="https://images.unsplash.com/photo-1580213845018-b9344d58d7cc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80"></img>
+                    <img className="image-ps-mobile" src={this.props.img}></img>
                 </Grid>
 
                 <Grid item xs={12}>
                     <div className="data-col-mb">
                         <div className="data-div-1">
-                            <h1>Lorem ipsum dolor sit amet, consectetur</h1>
-                            <p>$49.99</p>
+                            <h1>{`${this.props.title}`}</h1>
+                            <p>{`$${this.props.price}`}</p>
 
-                            <p className="description-ps">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation</p>
+                            <p className="description-ps">{`${this.props.description}`}</p>
                             <div style={{ marginBottom: "2rem" }}>
                                 <QtySelector />
                             </div>

@@ -20,9 +20,9 @@ export default class ProductShowDesktop extends Component {
                     <div className="data-col">
                         <div className="data-div-1">
                             <h1>{`${this.props.title}`}</h1>
-                            <p>{`$${this.props.price.toFixed(2)}`}</p>
+                            <p>{`$${this.props.price}`}</p>
 
-                            <p className="description-ps">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation</p>
+                            <p className="description-ps">{`${this.props.description}`}</p>
                             <div style={{ marginBottom: "2rem" }}>
                                 <QtySelector />
                             </div>
@@ -35,7 +35,6 @@ export default class ProductShowDesktop extends Component {
                         </div>
                     </div>
                 </Grid>
-
             </Grid>
 
         )
