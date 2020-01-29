@@ -10,7 +10,7 @@ export default class ProductShowDesktop extends Component {
         return (
             <Grid container spacing={3}>
                 <Grid item xs={12} md={6} className="image-col">
-                    <img className="image-ps" src="https://images.unsplash.com/photo-1580213845018-b9344d58d7cc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80"></img>
+                    <img className="image-ps" src={`${this.props.img}`}></img>
                     <Link to="/Products" style={{ textDecoration: 'none', marginBottom: "2rem" }}>
                         <button className="green-btn green-btn-inverse-mb" style={{ margin: 0, width: "40rem" }}>See our products</button>
                     </Link>
@@ -19,8 +19,8 @@ export default class ProductShowDesktop extends Component {
                 <Grid item sm={6}>
                     <div className="data-col">
                         <div className="data-div-1">
-                            <h1>Lorem ipsum dolor sit amet, consectetur</h1>
-                            <p>$49.99</p>
+                            <h1>{`${this.props.title}`}</h1>
+                            <p>{`$${this.props.price.toFixed(2)}`}</p>
 
                             <p className="description-ps">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation</p>
                             <div style={{ marginBottom: "2rem" }}>

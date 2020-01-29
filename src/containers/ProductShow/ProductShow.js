@@ -15,6 +15,7 @@ export default class ProductShow extends Component {
             isLoading: false,
             productName: "",
             price: null,
+            description: "",
             img: ""
         };
         this.updatePredicate = this.updatePredicate.bind(this);
@@ -30,6 +31,7 @@ export default class ProductShow extends Component {
                     this.setState({
                         productName: res.data.title,
                         price: res.data.price,
+                        description: res.data.description,
                         img: res.data.productImage
                     })
                     this.setState({ isLoading: false })
@@ -67,12 +69,14 @@ export default class ProductShow extends Component {
                             img={this.state.img}
                             title={this.state.productName}
                             price={this.state.price}
+                            description={this.state.description}
                         />
                         :
                         <ProductShowMobile
                             img={this.state.img}
                             title={this.state.productName}
                             price={this.state.price}
+                            description={this.state.description}
                         />}
                 </div>
             )
