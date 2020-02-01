@@ -63,7 +63,7 @@ export default class ProductShow extends Component {
             </div>
         } else {
             return (
-                <div className="product-show-page">
+                <div className="product-show-page" style={{minHeight: "70rem"}}>
                     {this.state.isDesktop
                         ?
                         <ProductShowDesktop

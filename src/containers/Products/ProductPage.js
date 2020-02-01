@@ -35,8 +35,10 @@ const Products = () => {
   const currentItems = filteredProducts.slice(indexOfFirstItem, indexOfLastItem);
 
   // change page
-  const paginate = (pageNumber) => setCurrentPage(pageNumber);
+  const paginate = (pageNumber) => {
+    setCurrentPage(pageNumber);
 
+  }
   return (
     <div className="products-page">
       <Title text={'Products'} />
@@ -44,7 +46,7 @@ const Products = () => {
         onChange={e => setSearchBarValue(e.target.value)}
         placeholder="Search products"
         className="filterInput"
-        ></input>
+      ></input>
       <Items items={currentItems} loading={loading} />
       <Pagination itemsPerPage={itemsPerPage} totalItems={items.length}
         paginate={paginate}
