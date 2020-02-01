@@ -27,15 +27,15 @@ class CartItem extends Component {
   }
 
   render() {
-    const { title, price, img, index, qty } = this.props;
+    const { title, price, img, qty, id } = this.props;
     return (
-      <div className="cart-item" key={index}>
-        <Link to={`/Products/${index}`} className="product-link" >
+      <div className="cart-item" key={id}>
+        <Link to={`/Products/${id}`} className="product-link" >
           <img className="cart-item-img" src={`${img}`} alt={title}></img>
         </Link>
 
         <div className="cart-item-col">
-          <Link to={`/Products/${index}`} className="product-link" >
+          <Link to={`/Products/${id}`} className="product-link" >
             <h2>{title}</h2>
           </Link>
 

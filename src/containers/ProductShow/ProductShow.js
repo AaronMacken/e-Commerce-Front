@@ -71,6 +71,7 @@ export default class ProductShow extends Component {
                             title={this.state.productName}
                             price={Number(price).toFixed(2)}
                             description={this.state.description}
+                            id={this.props.match.params.product_id}
                         />
                         :
                         <ProductShowMobile
@@ -78,6 +79,7 @@ export default class ProductShow extends Component {
                             title={this.state.productName}
                             price={Number(price).toFixed(2)}
                             description={this.state.description}
+                            id={this.props.match.params.product_id}
                         />}
                 </div>
             )
